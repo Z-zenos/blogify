@@ -9,15 +9,15 @@
   }
 
   &--featured {
+    padding: 6rem 14% 8rem;
     background-color: $primary-color;
 
     .section__body {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      place-items: center;
     }
-
   }
-
 
   &--lastest {
     width: 100%;

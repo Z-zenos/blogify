@@ -1,7 +1,7 @@
 @import "../../../styles";
 
 .post-card {
-  width: 30rem;
+  width: 31rem;
   height: 41rem;
   font-size: $small-text;
   border: 2px solid $black-color;
@@ -9,6 +9,58 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
   border-radius: 8px;
   cursor: pointer;
+
+  &--transperent {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid $green-1;
+    border-radius: 0;
+    height: 50rem;
+
+    .post-card__info {
+      height: 30rem;
+      padding: 1.6rem 0;
+    }
+
+    .post-card__title {
+      line-height: 2.4rem;
+    }
+
+    img {
+      border-radius: 8px;
+    }
+  }
+
+  &--two-column {
+    width: 64rem;
+    height: 50rem;
+
+    .post-card__img {
+      height: 25rem;
+    }
+
+    .post-card__info {
+      height: 25rem;
+    }
+  }
+
+  &--horizontal {
+    width: 88%;
+    margin: 2rem auto 0;
+    display: grid;
+    grid-template-columns: 20% 78%;
+    column-gap: 2%;
+    height: 18rem;
+
+    .post-card__info {
+      padding: 0;
+      grid-template-rows: 15% 10% 30% 30%;
+      height: 100%;
+      row-gap: 3%;
+      place-items: center start;
+    }
+  }
 
   &__img {
     width: 100%;
@@ -43,6 +95,10 @@
     font-weight: 700;
     color: $primary-color;
     line-height: 2rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__action {

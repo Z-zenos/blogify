@@ -1,4 +1,9 @@
-<div class="post-card">
+<div [ngClass]="
+    'post-card ' + 
+    (simple ? 'post-card--transperent ' : '') + 
+    (twoColumn ? 'post-card--two-column ' : '') + 
+    (horizontal ? 'post-card--horizontal ' : '')
+  ">
   <div class="post-card__img">
     <img [src]="'../../../assets/images/' + srcImg" alt="ubuntu dictionary" />
   </div>

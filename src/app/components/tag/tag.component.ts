@@ -62,4 +62,9 @@ export class TagComponent implements OnInit {
     this.color = tagFind?.color ?? "white";
   }
 
+  hover(e: Event, enter: boolean = true) {
+    const tagEl = e.target as HTMLElement;
+    tagEl.style.background = enter ? 'white' : this.bgColor;
+    tagEl.style.color = enter ? this.bgColor : this.color;
+  }
 }

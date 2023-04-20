@@ -1,8 +1,13 @@
 @import "../../../styles";
 
 .single-ctgr {
+
   &__list {
-    padding: 4rem 22%;
-    row-gap: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 15%;
   }
 }

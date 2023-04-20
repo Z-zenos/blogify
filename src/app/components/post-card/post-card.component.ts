@@ -8,6 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PostCardComponent implements OnInit {
   @Input() srcImg = "";
   @Input() tagsStr = "";
+  @Input() simple = false;
+  @Input() twoColumn = false;
+  @Input() horizontal = false;
+
   tags: string[] = [];
 
   constructor() { }
