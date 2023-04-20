@@ -1,0 +1,38 @@
+<div class="memory grid grid-cols-2">
+  <div class="memory__play" #playArea>
+    <div *ngFor="let pl of plsRandom" class="card" (click)="flipCard($event)">
+      <div class="card__side card__side--front">?</div>
+      <div class="card__side card__side--back" [ngStyle]="{'font-size': selectFontSizeByTextLength(pl) + 'px'}">
+        {{ pl }}
+      </div>
+    </div>
+  </div>
+
+  <div class="memory__specs">
+    <div class="guide">
+      <span class="text-half-highlight">Problem:</span> <span>There are 5 random letters, with each letter will have the
+        name of 5 corresponding programming languages. <br class="mb-4">
+        Your task is to flip the cards to get 5 consecutive programming languages that start with the same letter. <br
+          class="mb-4">
+        If the following card has a different initial than the previous card, you will have to start over. </span>
+    </div>
+    <div class="memory__moves my-4"><span class="text-half-highlight">Moves</span>: <span class="moves" #moves>0</span>
+    </div>
+    <div class="chaining">
+      <span class="text-half-highlight">Chains</span>:
+      <span *ngFor="let l of chain; let first = first">
+        <span *ngIf="!first">&rarr;</span> {{ l.title }}
+      </span>
+      <div *ngFor="let r of results" class="mt-4 ml-5">
+        <span class="primary-text underline">{{ r[0][0] | uppercase }}</span>:
+        <span *ngFor="let title of r; let first = first">
+          <span *ngIf="!first">&rarr;</span> {{ title }}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<button (click)="reset()">Reset</button>

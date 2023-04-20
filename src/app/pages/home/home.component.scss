@@ -1,0 +1,52 @@
+@import "../../../styles";
+
+.section {
+  text-align: center;
+  padding: 6rem 15% 8rem;
+  
+  &__body {
+    margin-top: 4rem;
+  }
+
+  &--featured {
+    background-color: $primary-color;
+
+    .section__body {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+  }
+
+
+  &--lastest {
+    width: 100%;
+    background-color: white;
+
+    .bl__heading--big {
+      color: $primary-color;
+    }
+
+    .bl__heading--medium {
+      color: $primary-color;
+      opacity: .9;
+    }
+
+    .section__body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      place-items: center;
+      gap: 4rem;
+    }
+  }
+
+  &--game {
+    background-color: $secondary-color;
+  }
+
+  &--collections {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+}

@@ -1,0 +1,25 @@
+<div class="post-card">
+  <div class="post-card__img">
+    <img [src]="'../../../assets/images/' + srcImg" alt="ubuntu dictionary" />
+  </div>
+  <div class="post-card__info text-left">
+    <h3 class="post-card__title">Make Dictionary Offline on Ubuntu / How do we do that</h3>
+    <div class="post-card__action">
+      <div>
+        <span>12, 2022 <mat-icon>access_time</mat-icon></span>
+      </div>
+      <div>
+        <span>6 <mat-icon>remove_red_eye</mat-icon></span>
+        <span>12 <mat-icon>comment</mat-icon></span>
+      </div>
+    </div>
+    <p class="post-card__short-desc">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eum fuga hic magnam nemo
+      nihil quos voluptas voluptatibus. Cum inventore praesentium veniam! Commodi dicta et iusto nihil, non odio
+      sapiente!"
+    </p>
+    <div class="post-card__tags">
+      <blog-tag *ngFor="let tag of tags" [tagName]="tag"></blog-tag>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+@import "../../../styles";
+
+$color-white: #fff;
+$color-border: #160707;
+$color-black: #000;
+
+.memory {
+  font-size: $small-text;
+  text-align: center;
+  border-radius: .8rem;
+
+  &__specs {
+    margin-top: 4rem;
+    text-align: left;
+  }
+
+  &__play {
+    place-self: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    place-items: center;
+    margin: 4rem 0;
+    width: 47rem;
+    gap: 1rem;
+
+    &--active {
+        pointer-events: none;
+    }
+  }
+}
+
+.card {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  perspective: 15rem;
+
+  &__side {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all .5s ease;
+    backface-visibility: hidden;
+    @include center-item(); 
+
+
+    border: 3px solid $color-border;
+
+    &--front {
+      background-color: $primary-color;
+      font-size: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: white;
+    }
+
+    &--back {
+      background-color: white;
+      transform: rotateY(180deg);
+    }
+  }
+
+  &__active {
+    .card__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    .card__side--back {
+      transform: rotateY(0);
+    }
+  }
+}
+
+.moves {
+  color: $primary-color;
+  font-weight: 600;
+}
+
+.guide {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 15% 85%;
+
+  &:first-child {
+    place-items: start;
+  }
+
+  &:last-child {
+    text-align: left;
+  }
+}

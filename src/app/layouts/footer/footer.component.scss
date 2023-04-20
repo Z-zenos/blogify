@@ -1,0 +1,31 @@
+@import "../../../styles";
+
+.bl__footer {
+  text-align: center;
+  background-color: $secondary-color;
+  padding: 4rem 0;
+
+  h1 {
+    font-weight: 600;
+    font-size: $big-text;
+    color: $primary-color;
+  }
+
+  ul {
+    margin: 2rem 0;
+
+    li {
+      display: inline-block;
+      margin: 0 2rem;
+    }
+
+    li a {
+      display: inline-block;
+      opacity: .7;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

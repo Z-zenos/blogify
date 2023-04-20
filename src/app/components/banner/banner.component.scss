@@ -1,0 +1,71 @@
+@import "../../../styles";
+
+.banner {
+  padding: 3rem 20%;
+  h1 {
+    font-size: $big-text;
+    color: $green-1;
+  }
+
+  p {
+    font-size: $small-text
+  }
+
+  background-image: url(../../../assets/images/25336.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-attachment: fixed;
+  background-size: contain;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.content:where(i, p, span) {
+  color: #202842;
+}
+
+.content {
+  width: 60rem;
+  margin: 2rem 0;
+}
+.content .quote-area {
+  display: flex;
+  justify-content: center;
+}
+
+.quote-area i {
+  font-size: $small-text;
+  color: $green-1;
+}
+
+.quote-area i:first-child {
+  margin: 3px 10px 0 0;
+}
+
+.quote-area i:last-child {
+  display: flex;
+  margin: 0 0 3px 10px;
+  align-items: flex-end;
+}
+
+.quote-area .quote {
+  font-size: $small-text;
+  text-align: center;
+  word-break: break-all;
+  color: white;
+}
+
+.content .author {
+  display: flex;
+  font-size: 18px;
+  margin-top: 20px;
+  font-style: italic;
+  justify-content: flex-end;
+  color: $green-1;
+}
+
+.author span:first-child {
+  margin: -7px 5px 0 0;
+  font-family: monospace;
+}

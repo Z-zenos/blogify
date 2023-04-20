@@ -1,0 +1,35 @@
+@import "../../../styles";
+
+.simple-card {
+  font-size: $small-text;
+  width: 40rem;
+  height: 42rem;
+  border: 1px solid #eee;
+  background-color: white;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 25rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(60, 60, 59);
+    @include limit-line(1);
+
+    line-height: 2.5rem;
+    margin-bottom: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__summary {
+    font-size: $tip-text;
+    opacity: .7;
+    @include limit-line(4);
+  }
+}
