@@ -4,10 +4,11 @@
     <div class="overview">
       <div class="overview__info">
         <span class="overview__date">DECEMBER 8, 2023 <mat-icon>access_time</mat-icon></span>
+        <span class="overview__reading-time">{{ readingTime }} min</span>
         <div class="overview__react">
           <div>
             <span>8 <mat-icon>remove_red_eye</mat-icon></span>
-            <span>12 <mat-icon>comment</mat-icon></span>
+            <span class="ml-4">12 <mat-icon>comment</mat-icon></span>
           </div>
         </div>
       </div>
@@ -52,7 +53,7 @@
       <mat-icon>bookmark_border</mat-icon>
       <mat-icon> insert_comment</mat-icon>
     </div>
-    <article class="content">
+    <article class="content" #content>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus efficitur nulla non posuere. Mauris
         iaculis
