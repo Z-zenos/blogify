@@ -26,6 +26,7 @@ import { SimpleCardComponent } from './components/simple-card/simple-card.compon
 import { MemoryComponent } from './games/memory/memory.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { ScrollColorDirective } from './directives/scroll-color.directive';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { BannerComponent } from './components/banner/banner.component';
     SimpleCardComponent,
     MemoryComponent,
     BadgeComponent,
-    BannerComponent
+    BannerComponent,
+    ScrollColorDirective,
   ],
   imports: [
     BrowserModule,

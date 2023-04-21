@@ -10,5 +10,4 @@ export class CategoryBoxComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
