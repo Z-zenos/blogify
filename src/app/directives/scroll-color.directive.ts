@@ -16,8 +16,11 @@ export class ScrollColorDirective implements OnInit, AfterViewInit, OnDestroy {
   @HostListener('window:scroll', ['$event'])
   onScrollIntoView() {
     if (this._elRef) {
-      const top = (this._elRef.nativeElement.previousSibling as HTMLElement).getBoundingClientRect().top;
+      const { top, bottom } = (this._elRef.nativeElement.previousSibling as HTMLElement).getBoundingClientRect();
+      console.log(top, bottom);
+
       top <= 170 ? this.navEl?.classList.add("switch-ui") : this.navEl?.classList.remove("switch-ui");
+      bottom <= 170 && this.navEl?.classList.remove("switch-ui");
     }
   }
 
