@@ -1,0 +1,151 @@
+@import "../../../styles";
+
+.post {
+  padding: 6rem 15%;
+  transition: $transition;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 50% 45%;
+    column-gap: 5%;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba($green-1, .3);
+
+    mat-icon {
+      font-size: $small-text;
+      @include center-item();
+    }
+  }
+
+  &__img {
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 1rem;
+
+    &:hover {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    }
+
+    img {
+      width: 100%;
+      height: 30rem;
+      border-radius: 1rem;
+    }
+
+
+
+  }
+
+
+  &__body {
+    margin: 8rem 0;
+    font-size: 1.7rem;
+    display: grid;
+    grid-template-columns: 15% 60% 25%;
+    place-items: start;
+    position: relative;
+
+    p {
+      line-height: 3rem;
+    }
+
+    .tool {
+      place-self: start center;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      row-gap: 2rem;
+    }
+
+    .content {
+      width: 70rem;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 4;
+    }
+
+  }
+
+  ::selection {
+    background-color: $primary-color;
+    color: white;
+  }
+}
+
+.overview {
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__date {
+    font-size: 1.3rem;
+    opacity: .7;
+  }
+
+  &__react {
+    opacity: .7;
+    span {
+      @include center-item();
+    }
+  }
+  
+  &__summary {
+    margin: 2.4rem 0;
+    opacity: .9;
+  }
+
+  &__tags {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+
+  .quick-summary {
+    font-size: $small-text;
+    color: $primary-color;
+    font-weight: 700;
+  }
+
+  .author {
+    display: grid;
+    grid-template-columns: 6% 92%;
+    place-items: center start;
+    column-gap: 2%;
+
+    &__avatar {
+      img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+      }
+    }
+
+    &__info {
+      width: 100%;
+
+    }
+
+    &__name {
+      color: black;
+    }
+
+    &__profession {
+      opacity: .7;
+      font-size: $tip-text;
+    }
+  }
+}

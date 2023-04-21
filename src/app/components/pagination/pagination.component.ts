@@ -11,7 +11,6 @@ export class PaginationComponent implements OnInit, AfterViewInit {
   pageArr: number[] = [];
   currentPage: number = 1;
   maxPage: number = 7;
-
   listPage: HTMLElement[] = [];
 
   constructor(private _elRef: ElementRef) {
@@ -24,7 +23,6 @@ export class PaginationComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.listPage = Array.from(this._elRef.nativeElement.querySelectorAll('li'));
-    console.log(this.listPage);
   }
 
   changePage(e: Event) {
@@ -58,5 +56,4 @@ export class PaginationComponent implements OnInit, AfterViewInit {
       });
     }
   }
-
 }
