@@ -33,6 +33,7 @@ body {
   font-size: 1.2rem;
   background-color: white;
   box-sizing: border-box;
+  text-underline-position: under;
 }
 
 html {
@@ -44,6 +45,12 @@ html {
   height: auto;
   display: inline-block;
   margin-right: 4px;
+}
+
+.tool-icon {
+  width: 3.6rem;
+  height: 3.6rem;
+  cursor: pointer;
 }
 
 .bl__heading {

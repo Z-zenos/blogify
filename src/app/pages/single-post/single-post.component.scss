@@ -52,26 +52,6 @@
     p {
       line-height: 3rem;
     }
-
-    .tool {
-      place-self: start center;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      row-gap: 2rem;
-      @include stickyElement();
-    }
-
-    .content {
-      width: 70rem;
-    }
-
-    .sidebar {
-      @include stickyElement();
-    }
-
   }
 
   ::selection {
@@ -115,6 +95,20 @@
   &__title {
     font-size: 4rem;
     line-height: 4rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: .5rem;
+      top: 0;
+      left: -2rem;
+      display: block;
+      background-color: $primary-color;
+      border-radius: 20px;
+    }
+  
   }
 
   .quick-summary {
@@ -149,6 +143,79 @@
     &__profession {
       opacity: .7;
       font-size: $tip-text;
+    }
+  }
+}
+
+.tool {
+  &__box {
+    place-self: start center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 2rem;
+    text-align: center;
+    row-gap: 2rem;
+  }
+}
+
+.awards {
+  &__box {
+    place-self: start center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 1rem;
+    text-align: center;
+    row-gap: 2rem;
+
+    img {
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.post .content {
+  width: 70rem;
+  
+}
+
+.post .sidebar {
+  &--left {
+    left: 5rem;
+    margin-left: 5rem;
+  }
+
+  &--right {
+
+  }
+
+  @include stickyElement();
+
+  &__header {
+    color: #3c3c3b;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-left: -2rem;
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 0.5em;
+      vertical-align: bottom;
+      width: 100%;
+      margin-right: -100%;
+      margin-left: 10px;
+      border-top: 1px solid #3c3c3b;
+    }
+
+    &:hover {
     }
   }
 }

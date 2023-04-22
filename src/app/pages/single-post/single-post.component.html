@@ -49,9 +49,33 @@
 
   <!-- POST BODY -->
   <div class="post__body">
-    <div class="tool">
-      <mat-icon>bookmark_border</mat-icon>
-      <mat-icon> insert_comment</mat-icon>
+    <div class="sidebar sidebar--left">
+      <div class="tool">
+        <h3 class="sidebar__header">Tools</h3>
+        <div class="tool__box">
+          <img class="tool-icon" [src]="'../../../assets/icons/' + (bookmarked ? 'bookmarked' : 'bookmark') + '.svg'"
+            alt="bookmark icon" (click)="toggle('bookmark')" />
+          <img class="tool-icon" src="../../../assets/icons/printer.svg" alt="printer icon" />
+          <img class="tool-icon" src="../../../assets/icons/share.svg" alt="share icon" />
+          <img class="tool-icon" src="../../../assets/icons/terminal-read.svg" alt="terminal-read icon" />
+          <img class="tool-icon" src="../../../assets/icons/comment.svg" alt="comment icon" />
+        </div>
+      </div>
+      <div class="awards">
+        <h3 class="sidebar__header">Awards</h3>
+        <div class="awards__box">
+          <img [src]="'../../../assets/icons/' + (clapped ? 'clapped' : 'clapping') + '.png'" alt="clapping icon"
+            (click)="toggle('clap')" />
+          <img [src]="'../../../assets/icons/' + (hearted ? 'hearted' : 'heart') + '.png'" alt="heart icon"
+            (click)="toggle('heart')" />
+          <img [src]="'../../../assets/icons/' + (lighted ? 'lightbulbed' : 'lightbulb') + '.png'" alt="light bulb icon"
+            (click)="toggle('light')" />
+          <img [src]="'../../../assets/icons/' + (moneyed ? 'money-bag' : 'money-baged') + '.png'" alt="money bag icon"
+            (click)="toggle('money')" />
+          <img [src]="'../../../assets/icons/' + (stared ? 'stared' : 'star') + '.png'" alt="star icon"
+            (click)="toggle('star')" />
+        </div>
+      </div>
     </div>
     <article class="content" #content>
       <p>
@@ -100,14 +124,16 @@
       </p>
     </article>
 
-    <div class="sidebar">
+    <div class="sidebar sidebar--right">
       <div class="menu">
+        <h3 class="sidebar__header">Menu</h3>
         <h3>1. This is a heading</h3>
         <h4>a. sub-title 1</h4>
         <h4>b. sub-title 2</h4>
         <h3>2. No, this isn;t heading</h3>
       </div>
-      <div class="related-post">
+      <div class="stacked-post">
+        <h3 class="sidebar__header">Stacked Post</h3>
         1. hehe
         2. haha
         3. huhu
