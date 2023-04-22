@@ -16,6 +16,8 @@ export class SinglePostComponent implements OnInit, AfterViewInit {
   lighted: boolean = false;
   moneyed: boolean = false;
 
+  awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket'];
+
   constructor(private _cdref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -34,32 +36,14 @@ export class SinglePostComponent implements OnInit, AfterViewInit {
     this.readingTime = time;
   }
 
-  toggle(typeIcon: string): void {
-    switch (typeIcon) {
-      case 'bookmark':
-        this.bookmarked = !this.bookmarked;
-        break;
+  toggleSrcImage(e: Event): void {
+    const img = e.target as HTMLImageElement;
+    const src = img.src;
+    const index = src.lastIndexOf("/") + 1;
+    const filenameWithExt = src.substring(index);
+    const [filename, ext] = filenameWithExt.split('.');
 
-      case 'clap':
-        this.clapped = !this.clapped;
-        break;
-
-      case 'heart':
-        this.hearted = !this.hearted;
-        break;
-
-      case 'money':
-        this.moneyed = !this.moneyed;
-        break;
-
-      case 'star':
-        this.stared = !this.stared;
-        break;
-
-      case 'light':
-        this.lighted = !this.lighted;
-        break;
-    }
+    img.src = `http://localhost:4200/assets/icons/${filename}${filename.slice(-2) === 'ed' ? '' : 'ed'}.${ext}`;
   }
 
 }

@@ -188,7 +188,6 @@
     margin-left: 5rem;
 
     img {
-      border-radius: 50%;
       transition: $transition;
 
       &:hover {
@@ -196,10 +195,6 @@
         padding: 2px;
       }
     }
-  }
-
-  &--right {
-
   }
 
   @include stickyElement();
@@ -223,9 +218,6 @@
       margin-right: -100%;
       margin-left: 10px;
       border-top: 1px solid $text-color;
-    }
-
-    &:hover {
     }
   }
 }

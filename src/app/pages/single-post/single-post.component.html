@@ -53,8 +53,8 @@
       <div class="tool">
         <h3 class="sidebar__header">Tools</h3>
         <div class="tool__box">
-          <img class="tool-icon" [src]="'../../../assets/icons/' + (bookmarked ? 'bookmarked' : 'bookmark') + '.svg'"
-            alt="bookmark icon" (click)="toggle('bookmark')" />
+          <img class="tool-icon" src="../../../assets/icons/bookmark.svg" alt="bookmark"
+            (click)="toggleSrcImage($event)" />
           <img class="tool-icon" src="../../../assets/icons/printer.svg" alt="printer icon" />
           <img class="tool-icon" src="../../../assets/icons/share.svg" alt="share icon" />
           <img class="tool-icon" src="../../../assets/icons/terminal-read.svg" alt="terminal-read icon" />
@@ -64,16 +64,8 @@
       <div class="awards">
         <h3 class="sidebar__header">Awards</h3>
         <div class="awards__box">
-          <img [src]="'../../../assets/icons/' + (clapped ? 'clapped' : 'clapping') + '.png'" alt="clapping icon"
-            (click)="toggle('clap')" />
-          <img [src]="'../../../assets/icons/' + (hearted ? 'hearted' : 'heart') + '.png'" alt="heart icon"
-            (click)="toggle('heart')" />
-          <img [src]="'../../../assets/icons/' + (lighted ? 'lightbulbed' : 'lightbulb') + '.png'" alt="light bulb icon"
-            (click)="toggle('light')" />
-          <img [src]="'../../../assets/icons/' + (moneyed ? 'money-bag' : 'money-baged') + '.png'" alt="money bag icon"
-            (click)="toggle('money')" />
-          <img [src]="'../../../assets/icons/' + (stared ? 'stared' : 'star') + '.png'" alt="star icon"
-            (click)="toggle('star')" />
+          <img *ngFor="let a of awards" [src]="'../../../assets/icons/' + a + '.png'" [alt]="a"
+            (click)="toggleSrcImage($event)" />
         </div>
       </div>
     </div>
