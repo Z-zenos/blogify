@@ -76,10 +76,12 @@
     <div class="sidebar sidebar--right">
       <div class="menu">
         <h3 class="sidebar__header">Menu</h3>
-        <h3>1. This is a heading</h3>
-        <h4>a. sub-title 1</h4>
-        <h4>b. sub-title 2</h4>
-        <h3>2. No, this isn;t heading if not asf weruwia asfj </h3>
+        <div *ngFor="let hd of (headingList$ | async)">
+          <p [ngClass]="hd.nodeName === 'H2' ? 'menu--heading' : 'menu--sub-heading'">
+            <mat-icon>{{ hd.nodeName === 'H2' ? 'fiber_manual_record' : 'play_arrow'}}</mat-icon>
+            <span [innerHTML]="hd.innerHTML"></span>
+          </p>
+        </div>
       </div>
       <div class="stacked-post">
         <h3 class="sidebar__header">Stacked Post</h3>

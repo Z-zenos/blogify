@@ -1,1 +1,15 @@
 @import "../../../styles";
+
+a {
+  display: inline-block;
+  background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), rgba($green-1, 0.35) calc(50% - 9px), rgba($green-1, 0.35) 100%);
+  transition: all 120ms ease-in-out 0s;
+  background-size: 100% 200%;
+  background-position: 0px 0px;
+  word-break: break-word;
+
+  &:hover {
+    background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), $green-1 calc(50% - 9px), $green-1 100%);
+    background-position: 0px 100%;
+  }
+}

@@ -1,4 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ContentService } from 'src/app/services/content.service';
 
 @Component({
   selector: 'app-single-post',
@@ -18,14 +20,21 @@ export class SinglePostComponent implements OnInit, AfterViewInit {
 
   awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket', 'gift', 'crown', 'trophy', 'sprout', 'time'];
 
-  constructor(private _cdref: ChangeDetectorRef) { }
+  headingList$?: Observable<HTMLHeadingElement[]>;
+
+  constructor(
+    private _cdref: ChangeDetectorRef,
+    private _contentService: ContentService
+  ) { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit() {
     this.caculateTimeReading();
+    this.headingList$ = this._contentService.headingList$;
     this._cdref.detectChanges();
+
   }
 
   caculateTimeReading(): void {

@@ -199,6 +199,17 @@
     }
   }
 
+  .menu {
+    mat-icon {
+      font-size: 1.4rem;
+      @include center-item();
+      color: $green-1;
+      transform: translateY(2px);
+    }
+
+    
+  }
+
   @include stickyElement();
 
   &__header {
@@ -223,3 +234,19 @@
     }
   }
 }
+
+.menu--heading, .menu--sub-heading {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.menu--heading {
+  font-size: $small-text;
+  margin-top: .5rem;
+}
+
+.menu--sub-heading {
+  font-size: 1.3rem;
+  margin-left: 2rem;
+}
+
