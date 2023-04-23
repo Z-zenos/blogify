@@ -16,7 +16,7 @@ export class SinglePostComponent implements OnInit, AfterViewInit {
   lighted: boolean = false;
   moneyed: boolean = false;
 
-  awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket'];
+  awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket', 'gift', 'crown', 'trophy', 'sprout'];
 
   constructor(private _cdref: ChangeDetectorRef) { }
 
