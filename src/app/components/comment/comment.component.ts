@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-comment',
+  selector: 'blog-comment',
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.scss']
 })

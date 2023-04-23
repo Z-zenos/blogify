@@ -28,6 +28,7 @@
     width: 100%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border-radius: 1rem;
+    height: 30rem;
 
     &:hover {
       box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -84,6 +85,7 @@
   &__summary {
     margin: 2.4rem 0;
     opacity: .9;
+    font-size: $small-text;
   }
 
   &__tags {
@@ -93,7 +95,7 @@
   }
 
   &__title {
-    font-size: 4rem;
+    font-size: $big-text;
     line-height: 4rem;
     position: relative;
 
@@ -112,7 +114,7 @@
   }
 
   .quick-summary {
-    font-size: $small-text;
+    font-size: 2rem;
     color: $primary-color;
     font-weight: 700;
   }
@@ -122,6 +124,7 @@
     grid-template-columns: 6% 92%;
     place-items: center start;
     column-gap: 2%;
+    font-size: 1.4rem;
 
     &__avatar {
       img {
@@ -133,16 +136,15 @@
 
     &__info {
       width: 100%;
-
     }
 
     &__name {
       color: black;
+      font-size: 1.5rem;
     }
 
     &__profession {
       opacity: .7;
-      font-size: $tip-text;
     }
   }
 }

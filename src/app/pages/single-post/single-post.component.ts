@@ -16,7 +16,7 @@ export class SinglePostComponent implements OnInit, AfterViewInit {
   lighted: boolean = false;
   moneyed: boolean = false;
 
-  awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket', 'gift', 'crown', 'trophy', 'sprout'];
+  awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket', 'gift', 'crown', 'trophy', 'sprout', 'time'];
 
   constructor(private _cdref: ChangeDetectorRef) { }
 
@@ -43,7 +43,9 @@ export class SinglePostComponent implements OnInit, AfterViewInit {
     const filenameWithExt = src.substring(index);
     const [filename, ext] = filenameWithExt.split('.');
 
-    img.src = `http://localhost:4200/assets/icons/${filename}${filename.slice(-2) === 'ed' ? '' : 'ed'}.${ext}`;
+    let newFileName;
+    newFileName = filename.slice(-2) === 'ed' ? filename.slice(0, -2) : filename + "ed";
+    img.src = `http://localhost:4200/assets/icons/${newFileName}.${ext}`;
   }
 
 }

@@ -28,6 +28,7 @@ import { BadgeComponent } from './components/badge/badge.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { ScrollColorDirective } from './directives/scroll-color.directive';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { PostContentComponent } from './components/post-content/post-content.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     BannerComponent,
     ScrollColorDirective,
     PaginationComponent,
+    PostContentComponent,
   ],
   imports: [
     BrowserModule,
