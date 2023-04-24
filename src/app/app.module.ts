@@ -13,7 +13,6 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SubscriptionComponent } from './forms/subscription/subscription.component';
-import { CommentComponent } from './forms/comment/comment.component';
 import { NgOptimizedImage } from "@angular/common";
 import { AngularFireModule } from "@angular/fire/compat";
 import { environment } from "../environments/environment";
@@ -29,6 +28,8 @@ import { BannerComponent } from './components/banner/banner.component';
 import { ScrollColorDirective } from './directives/scroll-color.directive';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PostContentComponent } from './components/post-content/post-content.component';
+import { CommentsModule } from './modules/comments.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,6 @@ import { PostContentComponent } from './components/post-content/post-content.com
     AboutUsComponent,
     ContactComponent,
     SubscriptionComponent,
-    CommentComponent,
     PostCardComponent,
     TagComponent,
     SimpleCardComponent,
@@ -61,7 +61,9 @@ import { PostContentComponent } from './components/post-content/post-content.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    CommentsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

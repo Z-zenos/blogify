@@ -13,3 +13,8 @@ a {
     background-position: 0px 100%;
   }
 }
+
+::selection {
+  background-color: $primary-color;
+  color: white;
+}
