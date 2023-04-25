@@ -32,10 +32,16 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
     const fiveMinutes = 300000;
-    const timePassed = new Date().getMilliseconds() - new Date(this.comment.createdAt).getMilliseconds() > fiveMinutes;
+    const diffTime: any = Math.abs(new Date().getTime() - new Date(this.comment.createdAt).getTime());
+    const timePassed = diffTime > fiveMinutes;
+    this.createdAt = new Date(this.comment.createdAt).toLocaleDateString();
     this.canReply = Boolean(this.currentUserId);
     this.canEdit = this.currentUserId === this.comment.userId && !timePassed;
-    this.canDelete = this.currentUserId === this.comment.userId && this.replies.length === 0 && !timePassed;
+    this.canDelete =
+      this.currentUserId === this.comment.userId &&
+      this.replies.length === 0 &&
+      !timePassed;
+
     this.replyId = this.parentId ? this.parentId : this.comment.id;
   }
 
@@ -44,6 +50,10 @@ export class CommentComponent implements OnInit {
       return false;
     }
 
+    // Because when activeComment change comment-list component will re-render all child comment component
+    // Thus, new activeComment will pass into all comment child
+    // We need to check activeComment.id vs each comment id of comment component , if not all child comment 
+    // together open comment form
     return (
       this.activeComment?.id === this.comment.id && this.activeComment?.type === this.activeCommentType.replying
     );

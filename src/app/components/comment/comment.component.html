@@ -7,12 +7,16 @@
       <div class="comment-author">{{ comment.username }}</div>
       <div>{{ createdAt }}</div>
     </div>
+
+    <!-- Display text in normal state and hide text when form edit turned on -->
     <div class="comment-text" *ngIf="!isEditing()">{{ comment.body }}</div>
 
     <!-- FORM EDIT -->
     <blog-comment-form *ngIf="isEditing()" submitLabel="Update" [hasCancelButton]="true" [initialText]="comment.body"
       (handleSubmit)="updateComment.emit({text: $event, commentId: comment.id})"
-      (handleCancel)="setActiveComment.emit(null)"></blog-comment-form>
+      (handleCancel)="setActiveComment.emit(null)">
+    </blog-comment-form>
+    <!-- =============== -->
 
     <div class="comment-actions">
       <div *ngIf="canReply" class="comment-action"
@@ -29,10 +33,12 @@
     </div>
 
     <!-- FORM REPLY -->
+    <!-- replyId = current comment id = parentId -->
     <blog-comment-form *ngIf="isReplying()" submitLabel="Reply" [hasCancelButton]="true"
       (handleSubmit)="addComment.emit({ text: $event, parentId: replyId })"
       (handleCancel)="setActiveComment.emit(null)">
     </blog-comment-form>
+
     <div class="replies" *ngIf="replies.length > 0">
       <blog-comment *ngFor="let reply of replies" [comment]="reply" (setActiveComment)="setActiveComment.emit($event)"
         [activeComment]="activeComment" (addComment)="addComment.emit($event)" [parentId]="comment.id" [replies]="[]"

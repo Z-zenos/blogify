@@ -19,8 +19,6 @@ export class PostContentComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.headingList = Array.from(this._elRef.nativeElement.querySelectorAll('h2, h3'));
-    console.log(this.headingList);
-
     this._contentService.createHeadingList(this.headingList);
   }
 
