@@ -1,8 +1,5 @@
 <!-- COMMENT LIST INCLUDES FORM AND LIST OF COMMENTS -->
 <div class="comments">
-  <h3 class="comments-title">Comments</h3>
-  <div class="comment-form-title">Write comment</div>
-
   <blog-comment-form submitLabel="Write" (handleSubmit)="addComment({text: $event, parentId: null})">
   </blog-comment-form>
 

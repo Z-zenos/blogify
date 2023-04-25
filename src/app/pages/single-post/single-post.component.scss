@@ -59,6 +59,11 @@
     background-color: $primary-color;
     color: white;
   }
+
+  &__comment {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 .overview {
