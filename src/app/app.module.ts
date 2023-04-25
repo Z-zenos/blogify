@@ -30,6 +30,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { PostContentComponent } from './components/post-content/post-content.component';
 import { CommentsModule } from './modules/comments.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatIconModule,
     CommentsModule,
-    HttpClientModule
+    HttpClientModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

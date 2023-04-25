@@ -1,5 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <textarea class="comment-form-textarea" formControlName="title"></textarea>
+  <ckeditor class="comment-form-textarea" [editor]="Editor" data="<p>Hello from CKEditor5!</p>"
+    (ready)="onReady($event)" (change)="onChange($event)" formControlName="title">
+  </ckeditor>
   <button class="comment-form-button" type="submit" [disabled]="form.invalid">
     {{ submitLabel }}
   </button>

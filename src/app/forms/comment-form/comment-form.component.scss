@@ -1,2 +1,7 @@
 @import "../../../styles";
 
+::ng-deep {
+  .ck.ck-content.ck-editor__editable {
+    height: 20rem;
+  }
+}
