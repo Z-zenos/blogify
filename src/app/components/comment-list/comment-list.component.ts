@@ -37,15 +37,17 @@ export class CommentListComponent implements OnInit {
       });
   }
 
+  // Get replies of each comment based on parent ID
   getReplies(commentId: string): CommentInterface[] {
     return this.comments
       .filter((comment) => comment.parentId === commentId)
       .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
   }
 
+  // Invoking when click into reply or edit button of specific comment 
   setActiveComment(activeComment: ActiveCommentInterface | null): void {
     this.activeComment = activeComment;
-    console.log(this.activeComment);
+    // activeComment includes: commentID and state('replying' | 'editting')
   }
 
   updateComment({
@@ -67,6 +69,14 @@ export class CommentListComponent implements OnInit {
 
         this.activeComment = null;
       });
+  }
+
+  deleteComment(commentId: string): void {
+    this._commentService.deleteComment(commentId).subscribe(() => {
+      this.comments = this.comments.filter(
+        (comment) => comment.id !== commentId
+      );
+    });
   }
 
 }

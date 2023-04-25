@@ -1,12 +1,20 @@
+<!-- COMMENT LIST INCLUDES FORM AND LIST OF COMMENTS -->
 <div class="comments">
   <h3 class="comments-title">Comments</h3>
   <div class="comment-form-title">Write comment</div>
-  <blog-comment-form submitLabel="Write" (handleSubmit)="addComment({text: $event, parentId: null})">
-  </blog-comment-form>
+
+  <blog-comment-form submitLabel="Write"
+    (handleSubmit)="addComment({text: $event, parentId: null})"></blog-comment-form>
+
   <div class="comments-container">
-    <blog-comment *ngFor="let comment of comments" [comment]="comment" [currentUserId]="currentUserId"
-      [replies]="getReplies(comment.id)" (setActiveComment)="setActiveComment($event)" (addComment)="addComment($event)"
-      [activeComment]="activeComment" (updateComment)="updateComment($event)">
-    </blog-comment>
+    <ng-container *ngFor="let comment of comments">
+      <blog-comment *ngIf="!comment.parentId" [comment]="comment" [currentUserId]="currentUserId"
+        [replies]="getReplies(comment.id)" (setActiveComment)="setActiveComment($event)"
+        (addComment)="addComment($event)" [activeComment]="activeComment" (updateComment)="updateComment($event)"
+        (deleteComment)="deleteComment($event)">
+      </blog-comment>
+    </ng-container>
+
+
   </div>
 </div>

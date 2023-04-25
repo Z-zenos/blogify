@@ -7,11 +7,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./comment-form.component.scss']
 })
 export class CommentFormComponent implements OnInit {
-  @Input() submitLabel!: string;
+  @Input() submitLabel!: string; // required
   @Input() hasCancelButton: boolean = false;
   @Input() initialText: string = '';
 
   @Output() handleSubmit = new EventEmitter<string>();
+  @Output() handleCancel = new EventEmitter<void>();
 
   form!: FormGroup;
 
@@ -27,6 +28,8 @@ export class CommentFormComponent implements OnInit {
 
   onSubmit(): void {
     this.handleSubmit.emit(this.form.value.title);
+
+    // Clear input
     this.form.reset();
   }
 

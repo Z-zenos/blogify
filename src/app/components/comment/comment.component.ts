@@ -20,13 +20,13 @@ export class CommentComponent implements OnInit {
   @Output() setActiveComment = new EventEmitter<ActiveCommentInterface | null>();
   @Output() addComment = new EventEmitter<{ text: string, parentId: string | null }>();
   @Output() updateComment = new EventEmitter<{ text: string, commentId: string }>();
+  @Output() deleteComment = new EventEmitter<string>();
 
   activeCommentType = ActiveCommentTypeEnum;
   createdAt: string = '';
   canReply: boolean = false;
   canEdit: boolean = false;
   canDelete: boolean = false;
-
 
   constructor() { }
 
@@ -49,7 +49,7 @@ export class CommentComponent implements OnInit {
     );
   }
 
-  isEdditing(): boolean {
+  isEditing(): boolean {
     if (!this.activeComment) {
       return false;
     }
@@ -58,7 +58,4 @@ export class CommentComponent implements OnInit {
       this.activeComment?.id === this.comment.id && this.activeComment?.type === this.activeCommentType.editing
     );
   }
-
-
-
 }

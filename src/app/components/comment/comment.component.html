@@ -7,9 +7,13 @@
       <div class="comment-author">{{ comment.username }}</div>
       <div>{{ createdAt }}</div>
     </div>
-    <div class="comment-text" *ngIf="!isEdditing()">{{ comment.body }}</div>
-    <blog-comment-form *ngIf="isEdditing()" submitLabel="Update" [hasCancelButton]="true" [initialText]="comment.body"
-      (handleSubmit)="updateComment.emit({text: $event, commentId: comment.id})"></blog-comment-form>
+    <div class="comment-text" *ngIf="!isEditing()">{{ comment.body }}</div>
+
+    <!-- FORM EDIT -->
+    <blog-comment-form *ngIf="isEditing()" submitLabel="Update" [hasCancelButton]="true" [initialText]="comment.body"
+      (handleSubmit)="updateComment.emit({text: $event, commentId: comment.id})"
+      (handleCancel)="setActiveComment.emit(null)"></blog-comment-form>
+
     <div class="comment-actions">
       <div *ngIf="canReply" class="comment-action"
         (click)="setActiveComment.emit({id: comment.id, type: activeCommentType.replying})">
@@ -19,18 +23,21 @@
         (click)="setActiveComment.emit({id: comment.id, type: activeCommentType.editing})">
         Edit
       </div>
-      <div *ngIf="canDelete" class="comment-action">
+      <div *ngIf="canDelete" class="comment-action" (click)="deleteComment.emit(comment.id)">
         Delete
       </div>
     </div>
-    <blog-comment-form *ngIf="isReplying()" submitLabel="Reply"
-      (handleSubmit)="addComment.emit({ text: $event, parentId: replyId })">
+
+    <!-- FORM REPLY -->
+    <blog-comment-form *ngIf="isReplying()" submitLabel="Reply" [hasCancelButton]="true"
+      (handleSubmit)="addComment.emit({ text: $event, parentId: replyId })"
+      (handleCancel)="setActiveComment.emit(null)">
     </blog-comment-form>
     <div class="replies" *ngIf="replies.length > 0">
       <blog-comment *ngFor="let reply of replies" [comment]="reply" (setActiveComment)="setActiveComment.emit($event)"
         [activeComment]="activeComment" (addComment)="addComment.emit($event)" [parentId]="comment.id" [replies]="[]"
-        [currentUserId]="currentUserId" (updateComment)="updateComment.emit($event)">
-
+        [currentUserId]="currentUserId" (updateComment)="updateComment.emit($event)"
+        (deleteComment)="deleteComment.emit($event)">
       </blog-comment>
     </div>
   </div>
