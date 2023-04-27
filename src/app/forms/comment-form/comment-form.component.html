@@ -1,13 +1,23 @@
 <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form__editor">
-    <textarea class="form__textarea" formControlName="title" #textarea></textarea>
+    <textarea class="form__textarea" formControlName="title" #textarea (input)="calculateNumberCharacters($event)"
+      [maxlength]="maxCharacter"></textarea>
     <span class="form__username">@{{ username }}</span>
   </div>
 
-  <button class="btn btn--green" type="submit" [disabled]="form.invalid">
-    {{ submitLabel }}
-  </button>
-  <button *ngIf="hasCancelButton" type="button" class="btn btn--yellow" (click)="handleCancel.emit()">
-    Cancel
-  </button>
+  <div class="flex justify-between">
+    <div>
+      <button class="btn btn--green" type="submit" [disabled]="form.invalid">
+        {{ submitLabel }}
+      </button>
+      <button *ngIf="hasCancelButton" type="button" class="btn btn--yellow" (click)="handleCancel.emit()">
+        Cancel
+      </button>
+    </div>
+
+    <div class="form__limited-text mt-5">
+      <span class="primary-text">{{ currentNumberCharacters }}</span> / {{ maxCharacter }}
+    </div>
+  </div>
+
 </form>

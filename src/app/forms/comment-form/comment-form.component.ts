@@ -22,6 +22,8 @@ export class CommentFormComponent implements OnInit {
   @Output() handleCancel = new EventEmitter<void>();
 
   form!: FormGroup;
+  currentNumberCharacters: number = 0;
+  maxCharacter: number = 5;
 
   constructor(private _fb: FormBuilder) {
 
@@ -38,5 +40,14 @@ export class CommentFormComponent implements OnInit {
 
     // Clear input
     this.form.reset();
+  }
+
+  calculateNumberCharacters(e: Event) {
+    const textareaValue = e.target as HTMLTextAreaElement;
+    this.currentNumberCharacters = textareaValue.textLength;
+
+    if (this.currentNumberCharacters === this.maxCharacter) {
+
+    }
   }
 }
