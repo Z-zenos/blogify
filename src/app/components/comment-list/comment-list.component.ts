@@ -22,6 +22,10 @@ export class CommentListComponent implements OnInit {
     });
   }
 
+  getCurrentUsername(): string {
+    return this.comments.find(c => c.userId === this.currentUserId)?.username ?? 'zenos';
+  }
+
   addComment({
     text,
     parentId

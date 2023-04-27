@@ -1,1 +1,153 @@
 @import "../../../styles";
+
+.comment {
+  margin: 3rem 0;
+  width: 100%;
+  font-size: $small-text;
+  transition: $transition;
+
+  &__wrapper {
+    border-radius: 1rem;
+    display: grid;
+    padding: 2.4rem 3rem;
+    grid-template-columns: 5% 92%;
+    box-shadow: rgba($green-1, 0.6) 0px 2px 8px 0px;
+    column-gap: 3%;
+    border: 1px solid #ddd;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__actions {
+    padding-right: 2rem;;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 2rem;
+  }
+
+  &__action {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    transition: $transition;
+    border-radius: 4px;
+  }
+
+  &__author-avatar {
+    border-radius: 50%;
+    border: 2px solid $primary-color;
+    padding: 2px;
+    display: inline-block;
+
+    img {
+      width: 3.2rem;
+      height: 3.2rem;
+      display: inline-block;
+      border-radius: 50%;
+    }
+  }
+
+  &__author-username {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin: 0 1rem;
+  }
+
+  &__interact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: .4rem;
+    background-color: $secondary-color;
+    max-height: 10rem;
+    border-radius: 1rem;
+  }
+
+  &__text {
+    margin-top: 1rem;
+    opacity: .8;
+    font-weight: 500;
+  }
+
+  &__created-at {
+    font-size: 1.3rem;
+    opacity: .6;
+  }
+
+  .comment__reply {
+    color: #5457b6;
+
+    &:hover {
+      background-color: #5457b6;
+      color: white;
+    }
+  }
+
+  .comment__delete {
+    color: red;
+
+    &:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+
+  .comment__edit {
+    color:goldenrod;
+
+    &:hover {
+      background-color: goldenrod;
+      color: white;
+    }
+  }
+
+  mat-icon {
+    @include center-item();
+    margin-right: 3px;
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+
+  .increase, .decrease {
+    padding: 2px;
+
+    &:hover {
+      background-color: $green-1;
+      cursor: pointer;
+    }
+  }
+
+} 
+
+.comment__replies {
+  margin-left: 5rem;
+  border-left: 2px solid $green-1;
+  padding-left: 5rem;
+
+  .comment {
+    width: 100%;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 5rem;
+      height: 2px;
+      background-color: $green-1;
+      top: 50%;
+      left: -5rem;
+      transform: translateY(-50%);
+      z-index: 9;
+      position: absolute;
+    }
+  }
+}

@@ -5,10 +5,10 @@ import { CommentFormComponent } from 'src/app/forms/comment-form/comment-form.co
 import { CommentService } from 'src/app/services/comment.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, CKEditorModule],
+  imports: [CommonModule, ReactiveFormsModule, MatIconModule],
   declarations: [CommentComponent, CommentListComponent, CommentFormComponent],
   exports: [CommentListComponent],
   providers: [CommentService]

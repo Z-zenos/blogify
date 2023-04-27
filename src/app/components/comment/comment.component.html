@@ -1,50 +1,67 @@
 <div class="comment">
-  <div class="comment-image-container">
-    <img src="assets/images/terminal.png" />
-  </div>
-  <div class="comment-right-part">
-    <div class="comment-content">
-      <div class="comment-author">{{ comment.username }}</div>
-      <div>{{ createdAt }}</div>
+  <div class="comment__wrapper">
+    <div class="comment__interact">
+      <p class="increase">++</p>
+      <p class="number-interact">5</p>
+      <p class="decrease">--</p>
     </div>
+    <div class="comment__detail">
+      <div class="comment__header">
 
-    <!-- Display text in normal state and hide text when form edit turned on -->
-    <div class="comment-text" *ngIf="!isEditing()">{{ comment.body }}</div>
+        <div class="comment__header--left">
 
-    <!-- FORM EDIT -->
-    <blog-comment-form *ngIf="isEditing()" submitLabel="Update" [hasCancelButton]="true" [initialText]="comment.body"
-      (handleSubmit)="updateComment.emit({text: $event, commentId: comment.id})"
-      (handleCancel)="setActiveComment.emit(null)">
-    </blog-comment-form>
-    <!-- =============== -->
+          <span class="comment__author-avatar">
+            <img src="assets/images/terminal.png" />
+          </span>
+          <span class="comment__sub-detail">
+            <span class="comment__author-username text-half-highlight">{{ comment.username }}</span>
+            <span class="comment__created-at">{{ createdAt }}</span>
+          </span>
+        </div>
 
-    <div class="comment-actions">
-      <div *ngIf="canReply" class="comment-action"
-        (click)="setActiveComment.emit({id: comment.id, type: activeCommentType.replying})">
-        Reply
+        <div class="comment__header--right">
+          <div class="comment__actions">
+            <div *ngIf="canReply" class="comment__action comment__reply"
+              (click)="setActiveComment.emit({id: comment.id, type: activeCommentType.replying})">
+              <mat-icon>reply</mat-icon> Reply
+            </div>
+            <div *ngIf="canEdit" class="comment__action comment__edit"
+              (click)="setActiveComment.emit({id: comment.id, type: activeCommentType.editing})">
+              <mat-icon>mode_edit</mat-icon> Edit
+            </div>
+            <div *ngIf="canDelete" class="comment__action comment__delete" (click)="deleteComment.emit(comment.id)">
+              <mat-icon>delete</mat-icon> Delete
+            </div>
+          </div>
+        </div>
+
+
       </div>
-      <div *ngIf="canEdit" class="comment-action"
-        (click)="setActiveComment.emit({id: comment.id, type: activeCommentType.editing})">
-        Edit
+      <div class="comment__body">
+        <!-- Display text in normal state and hide text when form edit turned on -->
+        <div class="comment__text" *ngIf="!isEditing()">{{ comment.body }}</div>
       </div>
-      <div *ngIf="canDelete" class="comment-action" (click)="deleteComment.emit(comment.id)">
-        Delete
-      </div>
-    </div>
-
-    <!-- FORM REPLY -->
-    <!-- replyId = current comment id = parentId -->
-    <blog-comment-form *ngIf="isReplying()" submitLabel="Reply" [hasCancelButton]="true"
-      (handleSubmit)="addComment.emit({ text: $event, parentId: replyId })"
-      (handleCancel)="setActiveComment.emit(null)">
-    </blog-comment-form>
-
-    <div class="replies" *ngIf="replies.length > 0">
-      <blog-comment *ngFor="let reply of replies" [comment]="reply" (setActiveComment)="setActiveComment.emit($event)"
-        [activeComment]="activeComment" (addComment)="addComment.emit($event)" [parentId]="comment.id" [replies]="[]"
-        [currentUserId]="currentUserId" (updateComment)="updateComment.emit($event)"
-        (deleteComment)="deleteComment.emit($event)">
-      </blog-comment>
     </div>
   </div>
+  <!-- FORM EDIT -->
+  <blog-comment-form *ngIf="isEditing()" submitLabel="Update" [hasCancelButton]="true" [initialText]="comment.body"
+    (handleSubmit)="updateComment.emit({text: $event, commentId: comment.id})"
+    (handleCancel)="setActiveComment.emit(null)" [username]="username">
+  </blog-comment-form>
+  <!-- =============== -->
+
+  <!-- FORM REPLY -->
+  <!-- replyId = current comment id = parentId -->
+  <blog-comment-form *ngIf="isReplying()" submitLabel="Reply" [hasCancelButton]="true" [username]="username"
+    (handleSubmit)="addComment.emit({ text: $event, parentId: replyId })" (handleCancel)="setActiveComment.emit(null)">
+  </blog-comment-form>
+
+  <div class="comment__replies" *ngIf="replies.length > 0">
+    <blog-comment *ngFor="let reply of replies" [comment]="reply" (setActiveComment)="setActiveComment.emit($event)"
+      [activeComment]="activeComment" (addComment)="addComment.emit($event)" [parentId]="comment.id" [replies]="[]"
+      [currentUserId]="currentUserId" (updateComment)="updateComment.emit($event)"
+      (deleteComment)="deleteComment.emit($event)" [username]="username">
+    </blog-comment>
+  </div>
+
 </div>

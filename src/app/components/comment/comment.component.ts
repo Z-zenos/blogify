@@ -14,6 +14,7 @@ export class CommentComponent implements OnInit {
   @Input() replies!: CommentInterface[];
   @Input() activeComment!: ActiveCommentInterface | null;
   @Input() parentId!: string | null;
+  @Input() username: string = "";
 
   replyId: string | null = null;
 

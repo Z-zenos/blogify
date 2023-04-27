@@ -1,12 +1,13 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <ckeditor class="comment-form-textarea" [editor]="Editor" data="<p>Hello from CKEditor5!</p>"
-    (ready)="onReady($event)" (change)="onChange($event)" formControlName="title">
-  </ckeditor>
-  <button class="comment-form-button" type="submit" [disabled]="form.invalid">
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form__editor">
+    <textarea class="form__textarea" formControlName="title" #textarea></textarea>
+    <span class="form__username">@{{ username }}</span>
+  </div>
+
+  <button class="btn btn--green" type="submit" [disabled]="form.invalid">
     {{ submitLabel }}
   </button>
-  <button *ngIf="hasCancelButton" type="button" class="comment-form-button comment-form-cancel-button"
-    (click)="handleCancel.emit()">
+  <button *ngIf="hasCancelButton" type="button" class="btn btn--yellow" (click)="handleCancel.emit()">
     Cancel
   </button>
 </form>
