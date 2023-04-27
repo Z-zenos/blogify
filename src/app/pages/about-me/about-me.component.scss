@@ -1,1 +1,12 @@
 @import "../../../styles";
+
+.zenos {
+  padding: 0 15%;
+  display: grid;
+  grid-template-columns: 25% 40% 25%;
+  column-gap: 5%;
+
+  &--top {
+    height: 20rem;
+  }
+}
