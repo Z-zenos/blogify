@@ -149,5 +149,19 @@
       z-index: 9;
       position: absolute;
     }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background-color: $green-1;
+      border-radius: 50%;
+      top: 50%;
+      left: -5.6rem;
+      transform: translateY(-50%);
+      z-index: 9;
+      position: absolute;
+    }
   }
 }

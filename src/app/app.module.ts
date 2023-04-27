@@ -31,6 +31,8 @@ import { PostContentComponent } from './components/post-content/post-content.com
 import { CommentsModule } from './modules/comments.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { FormsModule } from '@angular/forms';
+import { SharedComponentsModule } from './modules/shared-components.module';
 
 @NgModule({
   declarations: [
@@ -65,9 +67,12 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MatIconModule,
     CommentsModule,
     HttpClientModule,
-    CKEditorModule
+    CKEditorModule,
+    FormsModule,
+    SharedComponentsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule { }

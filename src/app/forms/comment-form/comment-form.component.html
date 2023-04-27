@@ -2,6 +2,7 @@
   <div class="form__editor">
     <textarea class="form__textarea" formControlName="title" #textarea (input)="calculateNumberCharacters($event)"
       [maxlength]="maxCharacter"></textarea>
+    <!-- <blog-inline-editor formControlName="title"></blog-inline-editor> -->
     <span class="form__username">@{{ username }}</span>
   </div>
 

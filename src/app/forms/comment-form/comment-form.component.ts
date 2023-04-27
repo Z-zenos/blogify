@@ -23,7 +23,7 @@ export class CommentFormComponent implements OnInit {
 
   form!: FormGroup;
   currentNumberCharacters: number = 0;
-  maxCharacter: number = 5;
+  maxCharacter: number = 256;
 
   constructor(private _fb: FormBuilder) {
 
