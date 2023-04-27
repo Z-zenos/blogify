@@ -9,9 +9,6 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SingleCategoryComponent } from './pages/single-category/single-category.component';
 import { SinglePostComponent } from './pages/single-post/single-post.component';
-import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { ContactComponent } from './pages/contact/contact.component';
 import { SubscriptionComponent } from './forms/subscription/subscription.component';
 import { NgOptimizedImage } from "@angular/common";
 import { AngularFireModule } from "@angular/fire/compat";
@@ -33,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule } from '@angular/forms';
 import { SharedComponentsModule } from './modules/shared-components.module';
+import { AboutMeComponent } from './pages/about-me/about-me.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +41,6 @@ import { SharedComponentsModule } from './modules/shared-components.module';
     HomeComponent,
     SingleCategoryComponent,
     SinglePostComponent,
-    TermsConditionsComponent,
-    AboutUsComponent,
-    ContactComponent,
     SubscriptionComponent,
     PostCardComponent,
     TagComponent,
@@ -56,6 +51,7 @@ import { SharedComponentsModule } from './modules/shared-components.module';
     ScrollColorDirective,
     PaginationComponent,
     PostContentComponent,
+    AboutMeComponent,
   ],
   imports: [
     BrowserModule,
