@@ -31,6 +31,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule } from '@angular/forms';
 import { SharedComponentsModule } from './modules/shared-components.module';
 import { AboutMeComponent } from './pages/about-me/about-me.component';
+import { IconComponent } from './components/icon/icon.component';
+import { SpecialCardComponent } from './components/special-card/special-card.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { AboutMeComponent } from './pages/about-me/about-me.component';
     PaginationComponent,
     PostContentComponent,
     AboutMeComponent,
+    IconComponent,
+    SpecialCardComponent,
   ],
   imports: [
     BrowserModule,

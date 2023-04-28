@@ -1,5 +1,5 @@
 <blog-header></blog-header>
-<blog-category-box></blog-category-box>
+<blog-category-box *ngIf="router !== '/about-me'"></blog-category-box>
 <div class="bl__body">
   <router-outlet></router-outlet>
 </div>

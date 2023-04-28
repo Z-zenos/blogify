@@ -1,16 +1,58 @@
+<div class="zenos__heading">
+  <h1 class="bl__heading bl__heading--big">Hey there, @Zenos </h1>
+  <p class="bl__heading bl__heading--medium">
+    Welcome to Zenos Land of {{ today }}
+    <blog-icon name="island" extra="gif"></blog-icon>
+  </p>
+</div>
+
 <section class="zenos">
   <div class="zenos--left">
     <div class="zenos--top">
       <div class="zenos__social-media">
-
+        <a href="https://www.facebook.com/tuan.zenoss/"><blog-icon name="facebook"></blog-icon></a>
+        <a href="https://github.com/Z-zenos"><blog-icon name="github"></blog-icon></a>
+        <a href="https://www.youtube.com/channel/UCJK1BtLEo5dA5OuhqiZRgKA"><blog-icon name="youtube"></blog-icon></a>
+        <a href="https://twitter.com/zc0dev"><blog-icon name="twitter"></blog-icon></a>
       </div>
+    </div>
+    <ul class="list list--category">
+      <li><blog-icon name="project"></blog-icon> My Projects</li>
+      <li><blog-icon name="love"></blog-icon> Bookmarks</li>
+      <li><blog-icon name="career"></blog-icon> Career</li>
+    </ul>
+    <div class="zenos__me mt-10">
+      <h3 class="zenos__title">About Me 🧑‍💻</h3>
+      <ul class="list list--info mt-5">
+        <li><blog-icon name="name"></blog-icon> I'm Hoang Anh Tuan</li>
+        <li><blog-icon name="university"></blog-icon> Ha Noi University of Science and Technology</li>
+        <li class="flex"><blog-icon name="gmail"></blog-icon> <a
+            class="text-half-highlight ml-4">hoanganhtuanbk2001@gmail.com</a>
+        </li>
+        <li><blog-icon name="quotation"></blog-icon> 風林火山陰雷</li>
+        <li><blog-icon name="location"></blog-icon> Hanoi, Vietnam 🇻🇳</li>
+      </ul>
     </div>
   </div>
   <div class="zenos--middle">
-    middle
+    <div class="zenos--top">
+      <h3 class="zenos__title">
+        {{ title }}
+      </h3>
+    </div>
+    <div class="zenos__main">
+      <blog-special-card></blog-special-card>
+      <blog-special-card></blog-special-card>
+      <blog-special-card></blog-special-card>
+      <blog-special-card></blog-special-card>
+    </div>
   </div>
 
   <div class="zenos--right">
-    right
+    <div class="zenos--top">
+      <h3 class="zenos__title">
+        Coming soon...
+      </h3>
+    </div>
   </div>
 </section>

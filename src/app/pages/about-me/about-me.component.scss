@@ -1,12 +1,72 @@
 @import "../../../styles";
 
 .zenos {
-  padding: 0 15%;
+  padding: 0 20%;
+  margin: 3rem auto;
   display: grid;
   grid-template-columns: 25% 40% 25%;
   column-gap: 5%;
+  font-size: $small-text;
+
+  &__heading {
+    margin: 4rem 0;
+  }
+
+  img {
+    cursor: pointer;
+  }
 
   &--top {
-    height: 20rem;
+    height: 10rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 3px solid $text-color;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__social-media {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 2rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $text-color;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3rem;
+    margin-top: 3rem;
+  }
+
+}
+
+.list {
+  li {
+    padding: .7rem 1rem;
+  }
+
+  &--category {
+    li {
+      cursor: pointer;
+  
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+
+  
+
+  &--info {
+
   }
 }
