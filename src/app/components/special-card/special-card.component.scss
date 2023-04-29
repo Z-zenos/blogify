@@ -10,9 +10,10 @@
   padding: 1rem 1.2rem;
   box-shadow: $green-1 0px 0.2em, $green-1 0px -0.2em, $green-1 0.2em 0px, $green-1 -0.2em 0px, $primary-color 0.2em 0.4em, $primary-color 0.4em 0.2em, $green-1 0.4em 0.6em, $green-1 0.6em 0.4em;
   cursor: pointer;
+  
   &__img {
     height: 100%;
-    box-shadow: $primary-color 0px 0.2rem, $primary-color 0px -0.2rem, $primary-color 0.2rem 0px, $primary-color -0.2rem 0px;
+    box-shadow: $primary-color 1px 0.2rem, $primary-color 1px -0.2rem, $primary-color 0.2rem 1px, $primary-color -0.2rem 1px;
     img {
       height: 100%;
       object-fit: cover;
