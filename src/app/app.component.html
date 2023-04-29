@@ -1,6 +1,6 @@
-<blog-header></blog-header>
+<blog-header *ngIf="router !== '/about-me'"></blog-header>
 <blog-category-box *ngIf="router !== '/about-me'"></blog-category-box>
-<div class="bl__body">
+<div [ngClass]="{ 'bl__body': router !== '/about-me'}">
   <router-outlet></router-outlet>
 </div>
 <blog-footer></blog-footer>

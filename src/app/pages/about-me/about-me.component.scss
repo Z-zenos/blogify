@@ -1,11 +1,11 @@
 @import "../../../styles";
 
 .zenos {
-  padding: 0 20%;
+  padding: 0 18%;
   margin: 3rem auto;
   display: grid;
-  grid-template-columns: 25% 40% 25%;
-  column-gap: 5%;
+  grid-template-columns: 27% 40% 27%;
+  column-gap: 3%;
   font-size: $small-text;
 
   &__heading {
@@ -69,4 +69,8 @@
   &--info {
 
   }
+}
+
+.logo {
+  font-size: $big-text;
 }

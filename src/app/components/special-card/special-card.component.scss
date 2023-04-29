@@ -2,17 +2,17 @@
 
 .sc {
   width: 100%;
-  height: 15rem;
+  height: 16rem;
   background-color: white;
   display: grid;
   grid-template-columns: 38% 60%;
   column-gap: 2%;
   padding: 1rem 1.2rem;
-  box-shadow: rgb(194, 202, 214) 0px 0.2em, rgb(194, 202, 214) 0px -0.2em, rgb(194, 202, 214) 0.2em 0px, rgb(194, 202, 214) -0.2em 0px, rgb(133, 149, 173) 0.2em 0.4em, rgb(133, 149, 173) 0.4em 0.2em, rgb(82, 98, 122) 0.4em 0.6em, rgb(82, 98, 122) 0.6em 0.4em;
+  box-shadow: $green-1 0px 0.2em, $green-1 0px -0.2em, $green-1 0.2em 0px, $green-1 -0.2em 0px, $primary-color 0.2em 0.4em, $primary-color 0.4em 0.2em, $green-1 0.4em 0.6em, $green-1 0.6em 0.4em;
   cursor: pointer;
   &__img {
     height: 100%;
-    box-shadow: rgb(133, 149, 173) 0px 0.2rem, rgb(133, 149, 173) 0px -0.2rem, rgb(133, 149, 173) 0.2rem 0px, rgb(133, 149, 173) -0.2rem 0px;
+    box-shadow: $primary-color 0px 0.2rem, $primary-color 0px -0.2rem, $primary-color 0.2rem 0px, $primary-color -0.2rem 0px;
     img {
       height: 100%;
       object-fit: cover;
