@@ -1,5 +1,5 @@
 <nav class="bl__ctgr-box" #nav>
   <ul>
-    <li *ngFor="let c of categories"><a routerLink="/category">{{ c.name }}</a></li>
+    <li *ngFor="let c of categories"><a routerLink="/category" [queryParams]="{ name: c.name }">{{ c.name }}</a></li>
   </ul>
 </nav>

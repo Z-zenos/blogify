@@ -11,8 +11,7 @@ import { CategoryService } from 'src/app/services/category.service';
 export class PostCardComponent implements OnInit {
   @Input() post?: IPost;
   @Input() simple = false;
-  @Input() twoColumn = false;
-  @Input() horizontal = false;
+  @Input() type: string = ''; // twoColumn | horizontal
 
   tags: ICategory[] = [];
 

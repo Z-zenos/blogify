@@ -75,4 +75,10 @@ export class PostService {
     return collectionData(appQuery) as Observable<IPost[]>;
   }
 
+  getPostByCategory(name: string) {
+    return collectionData(this._posts, {
+      idField: 'id'
+    }) as Observable<IPost[]>;
+  }
+
 }

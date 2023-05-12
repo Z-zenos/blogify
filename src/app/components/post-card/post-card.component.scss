@@ -30,6 +30,10 @@
     img {
       border-radius: 8px;
     }
+
+    .post-card__img {
+      border-bottom: none;
+    }
   }
 
   &--two-column {
@@ -46,16 +50,16 @@
   }
 
   &--horizontal {
-    width: 88%;
+    width: 64rem;
     margin: 2rem auto 0;
     display: grid;
-    grid-template-columns: 20% 78%;
-    column-gap: 2%;
-    height: 18rem;
+    grid-template-columns: 20% 77%;
+    column-gap: 3%;
+    height: 20rem;
 
     .post-card__info {
       padding: 0;
-      grid-template-rows: 15% 10% 30% 30%;
+      grid-template-rows: 20% 15% 30% 20%;
       height: 100%;
       row-gap: 3%;
       place-items: center start;

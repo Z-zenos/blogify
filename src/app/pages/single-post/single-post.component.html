@@ -86,7 +86,7 @@
         <div class="stacked-post">
           <h3 class="sidebar__header">References</h3>
           <p class="text-half-highlight" *ngFor="let r of post.references"> <mat-icon
-              style="color: rgb(0, 255, 0); transform: translateY(6px);">link</mat-icon> {{ r }}</p>
+              style="color: rgb(0, 255, 0); transform: translateY(6px);">link</mat-icon> <a [href]="r">{{ r }}</a></p>
         </div>
       </div>
 

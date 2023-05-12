@@ -1,9 +1,8 @@
-<div *ngIf="post" [ngClass]="
-    'post-card ' + 
-    (simple ? 'post-card--transperent ' : '') + 
-    (twoColumn ? 'post-card--two-column ' : '') + 
-    (horizontal ? 'post-card--horizontal ' : '')
-  " routerLink="/post" [queryParams]="{ 'permalink': post!.permalink}">
+<div *ngIf="post" class="post-card" [ngClass]="{
+    'post-card--transperent': simple,
+    'post-card--two-column': type === 'twoColumn',
+    'post-card--horizontal': type === 'horizontal'  
+  }" routerLink="/post" [queryParams]="{ 'permalink': post!.permalink}">
   <div class="post-card__img">
     <img [src]="post!.image" [alt]="post!.title" />
   </div>
@@ -15,7 +14,7 @@
       </div>
       <div>
         <span>{{ post!.view }} <mat-icon>remove_red_eye</mat-icon></span>
-        <span>{{ post!.like }} <mat-icon [color]="'blue'">thumb_up</mat-icon></span>
+        <span>{{ post!.like }} <mat-icon style="color: blue;">thumb_up</mat-icon></span>
       </div>
     </div>
     <p class="post-card__short-desc">

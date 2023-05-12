@@ -1,23 +1,8 @@
 <div class="single-ctgr">
   <blog-banner></blog-banner>
   <div *scrollColor class="single-ctgr__list place-items-center">
-    <blog-post-card srcImg="pexels-bich-tran-669986.jpg" tagsStr="ubuntu,node.js,c" [simple]="true"
-      [twoColumn]="true"></blog-post-card>
-    <blog-post-card srcImg="pexels-hitesh-choudhary-879109.jpg" tagsStr="react.js,html,c"
-      [simple]="true"></blog-post-card>
-    <blog-post-card srcImg="pexels-jorge-jesus-614117.jpg" tagsStr="node.js,react.js,angular,css,javascript,html"
-      [simple]="true"></blog-post-card>
-    <blog-post-card srcImg="pexels-ravi-kant-5929346.jpg" tagsStr="ubuntu,node.js,c" [simple]="true"></blog-post-card>
-    <blog-post-card srcImg="pexels-hitesh-choudhary-879109.jpg" tagsStr="react.js,html,c" [simple]="true"
-      [twoColumn]="true"></blog-post-card>
-    <blog-post-card srcImg="pexels-jorge-jesus-614117.jpg" tagsStr="node.js,react.js,angular,css,javascript,html"
-      [simple]="true"></blog-post-card>
-    <blog-post-card srcImg="pexels-jorge-jesus-614117.jpg" tagsStr="node.js,react.js,angular,css,javascript,html"
-      [simple]="true" [horizontal]="true"></blog-post-card>
-    <blog-post-card srcImg="pexels-jorge-jesus-614117.jpg" tagsStr="node.js,react.js,angular,css,javascript,html"
-      [simple]="true" [horizontal]="true"></blog-post-card>
-    <blog-post-card srcImg="pexels-jorge-jesus-614117.jpg" tagsStr="node.js,react.js,angular,css,javascript,html"
-      [simple]="true" [horizontal]="true"></blog-post-card>
+    <blog-post-card *ngFor="let p of posts; let i = index; let last = last" [post]="p" [simple]="true"
+      [type]="['twoColumn', 'horizontal', ''] | randPostCardType"></blog-post-card>
   </div>
   <div class="single-ctgr__pgnt">
     <blog-pagination [totalPages]="16"></blog-pagination>
