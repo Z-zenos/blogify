@@ -1,8 +1,5 @@
 <nav class="bl__ctgr-box" #nav>
   <ul>
-    <li><a routerLink="/category">Node.js</a></li>
-    <li><a routerLink="/category">C</a></li>
-    <li><a routerLink="/category">Angular</a></li>
-    <li><a routerLink="/category">JavaScript</a></li>
+    <li *ngFor="let c of categories"><a routerLink="/category">{{ c.name }}</a></li>
   </ul>
 </nav>

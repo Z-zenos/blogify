@@ -1,30 +1,29 @@
-<div [ngClass]="
+<div *ngIf="post" [ngClass]="
     'post-card ' + 
     (simple ? 'post-card--transperent ' : '') + 
     (twoColumn ? 'post-card--two-column ' : '') + 
     (horizontal ? 'post-card--horizontal ' : '')
   ">
   <div class="post-card__img">
-    <img [src]="'../../../assets/images/' + srcImg" alt="ubuntu dictionary" />
+    <img [src]="post!.image" [alt]="post!.title" />
   </div>
   <div class="post-card__info text-left">
-    <h3 class="post-card__title">Make Dictionary Offline on Ubuntu / How do we do that</h3>
+    <h3 class="post-card__title">{{ post!.title }}</h3>
     <div class="post-card__action">
       <div>
-        <span>12, 2022 <mat-icon>access_time</mat-icon></span>
+        <span>{{ post!.created_at | date }} <mat-icon>access_time</mat-icon></span>
       </div>
       <div>
-        <span>6 <mat-icon>remove_red_eye</mat-icon></span>
-        <span>12 <mat-icon>comment</mat-icon></span>
+        <span>{{ post!.view }} <mat-icon>remove_red_eye</mat-icon></span>
+        <span>{{ post!.like }} <mat-icon [color]="'blue'">thumb_up</mat-icon></span>
       </div>
     </div>
     <p class="post-card__short-desc">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eum fuga hic magnam nemo
-      nihil quos voluptas voluptatibus. Cum inventore praesentium veniam! Commodi dicta et iusto nihil, non odio
-      sapiente!"
+      {{ post!.excerpt }}
     </p>
     <div class="post-card__tags">
-      <blog-tag *ngFor="let tag of tags" [tagName]="tag"></blog-tag>
+      <blog-tag *ngFor="let tag of post!.categories" [tagName]="tag.name"
+        [color]="getColorByOfTag(tag.name)"></blog-tag>
     </div>
   </div>
 </div>

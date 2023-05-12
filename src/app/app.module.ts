@@ -11,9 +11,7 @@ import { SingleCategoryComponent } from './pages/single-category/single-category
 import { SinglePostComponent } from './pages/single-post/single-post.component';
 import { SubscriptionComponent } from './forms/subscription/subscription.component';
 import { NgOptimizedImage } from "@angular/common";
-import { AngularFireModule } from "@angular/fire/compat";
-import { environment } from "../environments/environment";
-import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import { environment } from 'src/environments/environment.prod';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from "@angular/material/icon";
@@ -27,12 +25,14 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { PostContentComponent } from './components/post-content/post-content.component';
 import { CommentsModule } from './modules/comments.module';
 import { HttpClientModule } from '@angular/common/http';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule } from '@angular/forms';
 import { SharedComponentsModule } from './modules/shared-components.module';
 import { AboutMeComponent } from './pages/about-me/about-me.component';
 import { IconComponent } from './components/icon/icon.component';
 import { SpecialCardComponent } from './components/special-card/special-card.component';
+
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -61,13 +61,12 @@ import { SpecialCardComponent } from './components/special-card/special-card.com
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
     MatIconModule,
     CommentsModule,
     HttpClientModule,
-    CKEditorModule,
     FormsModule,
     SharedComponentsModule
   ],

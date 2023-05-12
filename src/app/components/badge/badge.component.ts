@@ -1,14 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-const collections = [
-  { title: 'nodejs', color: '#83cd29' },
-  { title: 'c', color: '#03599c' },
-  { title: 'html5', color: '#f16529' },
-  { title: 'css', color: '#33a9dc' },
-  { title: 'javascript', color: '#f0db4f' },
-  { title: 'mongodb', color: '#439934' },
-  { title: 'mysql', color: '#106a91' },
-]
+import { ICategory } from 'src/app/models/category.interface';
 
 @Component({
   selector: 'blog-badge',
@@ -16,15 +7,11 @@ const collections = [
   styleUrls: ['./badge.component.scss']
 })
 export class BadgeComponent implements OnInit {
-  @Input() title = "";
+  @Input() category?: ICategory;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  getColor(title: string): string {
-    return collections.find(c => c.title === title)?.color ?? 'black';
   }
 
 }

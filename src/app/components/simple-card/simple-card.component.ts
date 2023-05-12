@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IPost } from 'src/app/models/post.interface';
 
 @Component({
   selector: 'blog-simple-card',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./simple-card.component.scss']
 })
 export class SimpleCardComponent implements OnInit {
-  @Input() srcImg = "";
+  @Input() post?: IPost;
 
   constructor() { }
 

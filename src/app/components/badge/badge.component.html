@@ -1,12 +1,12 @@
 <div class="badge inline-block">
   <span class="badge__logo">
-    <img class="badge__img" [src]="'../../../assets/logos/' + title + '.svg'">
+    <img class="badge__img" [src]="category?.logo">
   </span>
   <span class="badge__title" [ngStyle]="{ 
-      'color': getColor(title),
+      'color': category?.color,
       'font-weight': 600 
     }
   ">
-    {{ title }}
+    {{ category?.name }}
   </span>
 </div>

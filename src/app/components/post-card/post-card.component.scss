@@ -67,6 +67,7 @@
     height: 18rem;
     margin-bottom: 1rem;
     overflow: hidden;
+    border-bottom: 1px solid $green-1;
 
     img {
       width: 100%;
@@ -74,6 +75,7 @@
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
       transition: $transition;
+      object-fit: contain;
 
       &:hover {
         transform: scale(1.1);
@@ -86,7 +88,8 @@
     height: 24rem;
     padding: 2px 2rem;
     display: grid;
-    grid-template-rows: 25% 10% 30% 35%;
+    grid-template-rows: 25% 10% 30% 30%;
+    place-items: center start;
     row-gap: 2%;
   }
 
@@ -103,11 +106,12 @@
 
   &__action {
     height: 2rem;
-    font-size: 13px;
+    font-size: $tip-text;
     display: flex;
     justify-content: space-between;
     align-items: center;
     opacity: .7;
+    margin: 1rem 0;
 
     span {
       @include center-item();
