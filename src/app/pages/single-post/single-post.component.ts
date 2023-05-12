@@ -1,15 +1,18 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
+import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, switchMap } from 'rxjs';
+import { ICategory } from 'src/app/models/category.interface';
+import { IPost } from 'src/app/models/post.interface';
+import { CategoryService } from 'src/app/services/category.service';
 import { ContentService } from 'src/app/services/content.service';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-single-post',
   templateUrl: './single-post.component.html',
   styleUrls: ['./single-post.component.scss'],
 })
-export class SinglePostComponent implements OnInit, AfterViewInit {
-  @ViewChild('content', { static: false }) contentEl?: ElementRef;
-
+export class SinglePostComponent implements OnInit, AfterContentChecked {
   readingTime: number = 0;
   bookmarked: boolean = false;
   clapped: boolean = false;
@@ -18,27 +21,44 @@ export class SinglePostComponent implements OnInit, AfterViewInit {
   lighted: boolean = false;
   moneyed: boolean = false;
 
+  post?: IPost;
+  categories: ICategory[] = [];
+
   awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket', 'gift', 'crown', 'trophy', 'sprout', 'time'];
 
   headingList$?: Observable<HTMLHeadingElement[]>;
 
   constructor(
     private _cdref: ChangeDetectorRef,
-    private _contentService: ContentService
+    private _contentService: ContentService,
+    private _activatedRoute: ActivatedRoute,
+    private _postService: PostService,
+    private _categoryService: CategoryService
   ) { }
 
   ngOnInit(): void {
+    this._categoryService.getAll(0).subscribe((data: ICategory[]) => {
+      this.categories = data;
+    });
+
+    this._activatedRoute.queryParams
+      .pipe(
+        switchMap(query => this._postService.getPostByPermalink(query['permalink']))
+      )
+      .subscribe((post: any) => {
+        [this.post] = post;
+      });
   }
 
-  ngAfterViewInit() {
+  ngAfterContentChecked() {
+
     this.caculateTimeReading();
     this.headingList$ = this._contentService.headingList$;
     this._cdref.detectChanges();
-
   }
 
   caculateTimeReading(): void {
-    const text = this.contentEl?.nativeElement.innerText;
+    const text = this.post?.content ?? '';
     const wpm = 225;
     const words = text.trim().split(/\s+/).length;
     const time = Math.ceil(words / wpm);
@@ -55,6 +75,10 @@ export class SinglePostComponent implements OnInit, AfterViewInit {
     let newFileName;
     newFileName = filename.slice(-2) === 'ed' ? filename.slice(0, -2) : filename + "ed";
     img.src = `http://localhost:4200/assets/icons/${newFileName}.${ext}`;
+  }
+
+  getColor(tagName: string) {
+    return this.categories.find(c => c.name === tagName)?.color ?? '';
   }
 
 }

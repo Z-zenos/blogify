@@ -24,7 +24,6 @@ export class PostCardComponent implements OnInit {
     this._categoryService.getAll(0).subscribe((data: ICategory[]) => {
       this.tags = data;
     });
-    console.log(this.post);
   }
 
   getColorByOfTag(tagName: string) {

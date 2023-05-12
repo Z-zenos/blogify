@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   async ngOnInit() {
     this._postService.getPostsByFeatured().subscribe((data: IPost[]) => {
       this.featuredPosts = data;
-      console.log("Featured post: ", this.featuredPosts);
     });
 
     this._categoryService.getAll(0).subscribe((data: ICategory[]) => {
@@ -31,8 +30,6 @@ export class HomeComponent implements OnInit {
     })
 
     this.lastestPosts = await firstValueFrom(await this._postService.getAll({ orderBy: 'created_at' }));
-    console.log("Lastest post: ", this.lastestPosts);
-
   }
 
 }

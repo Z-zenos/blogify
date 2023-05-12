@@ -1,4 +1,4 @@
-<div class="simple-card text-left">
+<div class="simple-card text-left" routerLink="/post" [queryParams]="{ 'permalink': post!.permalink}">
   <img [src]="post?.image" [alt]="post?.title" />
   <div class="p-10">
     <h3 class="simple-card__title text-half-highlight">{{ post?.title }}</h3>

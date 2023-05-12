@@ -76,8 +76,6 @@ export class MemoryComponent implements OnInit, AfterViewInit {
 
   createRandomPLArray() {
     const randLetterArr = this.randomUnique(5, 26);
-    console.log("random arr: ", randLetterArr);
-
 
     randLetterArr.forEach(i => {
       const letter: string = String.fromCharCode(65 + i);
@@ -111,16 +109,11 @@ export class MemoryComponent implements OnInit, AfterViewInit {
   }
 
   compare() {
-    console.log(this.chain);
-
     let succeed = true;
     for (let i = 0; i < this.chain.length - 1; i++) {
       if (this.chain[i].title[0].toLowerCase() !== this.chain[i + 1].title[0].toLowerCase())
         succeed = false;
     }
-
-    console.log("card flipped: ", this.numberCardsFlipped);
-
 
     if (!succeed) {
       this.chain.forEach((c: any) => c.el.classList.remove('card__active'));
@@ -158,7 +151,6 @@ export class MemoryComponent implements OnInit, AfterViewInit {
     }
 
     if (this.flipNum >= 2) {
-      console.log(this.chain);
       setTimeout(() => {
         this.compare();
       }, 1000);

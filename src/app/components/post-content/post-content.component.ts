@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
 import { ContentService } from 'src/app/services/content.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { ContentService } from 'src/app/services/content.service';
   styleUrls: ['./post-content.component.scss']
 })
 export class PostContentComponent implements OnInit, AfterViewInit {
+  @Input() content: string = '';
   headingList = [];
 
   constructor(

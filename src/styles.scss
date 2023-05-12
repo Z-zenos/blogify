@@ -349,64 +349,64 @@ textarea {
   }
 }
 
-.form {
-  width: 80rem;
-  height: 80rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  background-color: white;
-  border-radius: 10px;
-  overflow: scroll;
-  box-shadow: rgba($green-1, 0.19) 0px 10px 20px, rgba($green-1, 0.23) 0px 6px 6px;
-  scrollbar-width: none !important;
+// .form {
+//   width: 80rem;
+//   height: 80rem;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   z-index: 10;
+//   background-color: white;
+//   border-radius: 10px;
+//   overflow: scroll;
+//   box-shadow: rgba($green-1, 0.19) 0px 10px 20px, rgba($green-1, 0.23) 0px 6px 6px;
+//   scrollbar-width: none !important;
 
-  &::-webkit-scrollbar {
-    display: none;
-    width: 0 !important;
-  }
+//   &::-webkit-scrollbar {
+//     display: none;
+//     width: 0 !important;
+//   }
 
-  &__header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: $green-2;
-    color: white;
-    font-weight: 600;
-    font-size: 2.4rem;
-    height: 6rem;
-    width: 30rem;
-    @include center-item();
-    border-bottom-right-radius: 20rem;
-  }
+//   &__header {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     background-color: $green-2;
+//     color: white;
+//     font-weight: 600;
+//     font-size: 2.4rem;
+//     height: 6rem;
+//     width: 30rem;
+//     @include center-item();
+//     border-bottom-right-radius: 20rem;
+//   }
 
-  &__btns {
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 2rem 0;
-    border-top: 1px solid $green-1;
-    background-color: $secondary-color;
-    margin-top: 10rem;
-  }
+//   &__btns {
+//     position: sticky;
+//     bottom: 0;
+//     left: 0;
+//     width: 100%;
+//     text-align: center;
+//     padding: 2rem 0;
+//     border-top: 1px solid $green-1;
+//     background-color: $secondary-color;
+//     margin-top: 10rem;
+//   }
 
-  &__label {
-    font-size: $small-text;
-    color: $primary-color ;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    display: block;
+//   &__label {
+//     font-size: $small-text;
+//     color: $primary-color ;
+//     margin-bottom: 1rem;
+//     font-weight: 600;
+//     display: block;
 
-    &--color {
-      display: inline-block;
-      margin-right: 1rem;
-    }
-  }
-}
+//     &--color {
+//       display: inline-block;
+//       margin-right: 1rem;
+//     }
+//   }
+// }
 
 .hovertext {
   position: relative;

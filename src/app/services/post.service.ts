@@ -70,4 +70,9 @@ export class PostService {
     return collectionData(appQuery) as Observable<IPost[]>;
   }
 
+  getPostByPermalink(permalink: string) {
+    const appQuery = query(this._posts, where('permalink', '==', permalink));
+    return collectionData(appQuery) as Observable<IPost[]>;
+  }
+
 }

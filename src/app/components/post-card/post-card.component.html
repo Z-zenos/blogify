@@ -3,7 +3,7 @@
     (simple ? 'post-card--transperent ' : '') + 
     (twoColumn ? 'post-card--two-column ' : '') + 
     (horizontal ? 'post-card--horizontal ' : '')
-  ">
+  " routerLink="/post" [queryParams]="{ 'permalink': post!.permalink}">
   <div class="post-card__img">
     <img [src]="post!.image" [alt]="post!.title" />
   </div>

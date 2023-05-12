@@ -1,110 +1,109 @@
-<div *scrollColor class="post">
-  <!-- POST HEADER -->
-  <div class="post__header">
-    <div class="overview">
-      <div class="overview__info">
-        <span class="overview__date">DECEMBER 8, 2023 <mat-icon>access_time</mat-icon></span>
-        <span class="overview__reading-time">{{ readingTime }} min</span>
-        <div class="overview__react">
-          <div>
-            <span>8 <mat-icon>remove_red_eye</mat-icon></span>
-            <span class="ml-4">12 <mat-icon>comment</mat-icon></span>
+<ng-container *ngIf="post">
+  <div *scrollColor class="post">
+    <!-- POST HEADER -->
+    <div class="post__header">
+      <div class="overview">
+        <div class="overview__info">
+          <span class="overview__date">{{ post.created_at | date }} <mat-icon>access_time</mat-icon></span>
+          <span class="overview__reading-time">{{ readingTime }} min</span>
+          <div class="overview__react">
+            <div>
+              <span>{{ post.view }} <mat-icon>remove_red_eye</mat-icon></span>
+              <span class="ml-4">{{ post.like }} <mat-icon style="color: blue;">thumb_up</mat-icon></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="overview__tags mt-5 mb-10">
+          <blog-tag *ngFor="let c of post.categories" [tagName]="c.name" [color]="getColor(c.name)"></blog-tag>
+        </div>
+
+        <h1 class="overview__title">{{ post.title }}</h1>
+        <p class="overview__summary">
+          <span class="quick-summary">Quick summary &rarrw;</span>
+          {{ post.excerpt }}
+        </p>
+
+        <div class="author">
+          <div class="author__avatar">
+            <img [src]="post.image" [alt]="'zenos'">
+          </div>
+          <div class="author__info">
+            <p class="author__name primary-text text-half-highlight">
+              Zenos
+            </p>
+            <p class="author__profession">
+              Senior Web Destroyer
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="post__img post__img--main">
+        <img [src]="post.image" [alt]="post.title" />
+      </div>
+    </div>
+
+    <!-- POST BODY -->
+    <div class="post__body">
+      <div class="sidebar sidebar--left">
+        <div class="tool">
+          <h3 class="sidebar__header">Tools</h3>
+          <div class="tool__box">
+            <blog-icon name="bookmark" extra="svg" size="big"></blog-icon>
+            <blog-icon name="printer" extra="svg" size="big"></blog-icon>
+            <blog-icon name="share" extra="svg" size="big"></blog-icon>
+            <blog-icon name="terminal-read" extra="svg" size="big"></blog-icon>
+            <blog-icon name="comment" extra="svg" size="big"></blog-icon>
+          </div>
+        </div>
+        <div class="awards">
+          <h3 class="sidebar__header">Awards</h3>
+          <div class="awards__box">
+            <img *ngFor="let a of awards" [src]="'../../../assets/icons/' + a + '.png'" [alt]="a"
+              (click)="toggleSrcImage($event)" />
           </div>
         </div>
       </div>
-
-      <div class="overview__tags mt-5 mb-10">
-        <blog-tag tagName="node.js"></blog-tag>
-        <blog-tag tagName="angular"></blog-tag>
-        <blog-tag tagName="C"></blog-tag>
-      </div>
-
-      <h1 class="overview__title">Building an API is half the battle using Gin.z (Ep. 2)</h1>
-      <p class="overview__summary">
-        <span class="quick-summary">Quick summary &rarrw;</span>
-        Marco Palladino, CTO and cofounder of Kong,
-        joins Ryan to
-        talk about the evolution of API protocols over time and why building the API is only half the battle.
-      </p>
-
-      <div class="author">
-        <div class="author__avatar">
-          <img src="../../../assets/images/pexels-jorge-jesus-614117.jpg" alt="zenos avatar">
+      <article class="content" #content>
+        <blog-post-content [content]="post.content"></blog-post-content>
+        <div class="post__comment">
+          <h2 class="text-two-line mb-20">Comment</h2>
+          <blog-comment-list currentUserId="1"></blog-comment-list>
         </div>
-        <div class="author__info">
-          <p class="author__name primary-text text-half-highlight">
-            Zenos
-          </p>
-          <p class="author__profession">
-            Senior Content Marketer
-          </p>
+      </article>
+
+      <div class="sidebar sidebar--right">
+        <div class="menu" *ngIf="post">
+          <h3 class="sidebar__header">Menu</h3>
+          <div *ngFor="let hd of (headingList$ | async)">
+            <p [ngClass]="hd.nodeName === 'H2' ? 'menu--heading' : 'menu--sub-heading'">
+              <mat-icon>{{ hd.nodeName === 'H2' ? 'fiber_manual_record' : 'play_arrow'}}</mat-icon>
+              <span [innerHTML]="hd.innerHTML"></span>
+            </p>
+          </div>
+        </div>
+        <div class="stacked-post">
+          <h3 class="sidebar__header">References</h3>
+          <p class="text-half-highlight" *ngFor="let r of post.references"> <mat-icon
+              style="color: rgb(0, 255, 0); transform: translateY(6px);">link</mat-icon> {{ r }}</p>
         </div>
       </div>
 
     </div>
-    <div class="post__img post__img--main">
-      <img src="../../../assets/images/pexels-ekaterina-belinskaya-4744706.jpg" alt="post image" />
-    </div>
-  </div>
 
-  <!-- POST BODY -->
-  <div class="post__body">
-    <div class="sidebar sidebar--left">
-      <div class="tool">
-        <h3 class="sidebar__header">Tools</h3>
-        <div class="tool__box">
-          <blog-icon name="bookmark" extra="svg" size="big"></blog-icon>
-          <blog-icon name="printer" extra="svg" size="big"></blog-icon>
-          <blog-icon name="share" extra="svg" size="big"></blog-icon>
-          <blog-icon name="terminal-read" extra="svg" size="big"></blog-icon>
-          <blog-icon name="comment" extra="svg" size="big"></blog-icon>
-        </div>
+    <div class="post__related my-20">
+      <h2 class="text-two-line mb-20">Related Post</h2>
+      <div class=" grid grid-cols-4 place-items-center">
+        <blog-post-card srcImg="pexels-hitesh-choudhary-879109.jpg" tagsStr="react.js,html,c"
+          [simple]="true"></blog-post-card>
+        <blog-post-card srcImg="pexels-jorge-jesus-614117.jpg" tagsStr="node.js,react.js,angular,css,javascript,html"
+          [simple]="true"></blog-post-card>
+        <blog-post-card srcImg="pexels-ravi-kant-5929346.jpg" tagsStr="ubuntu,node.js,c"
+          [simple]="true"></blog-post-card>
+        <blog-post-card srcImg="pexels-ravi-kant-5929346.jpg" tagsStr="ubuntu,node.js,c"
+          [simple]="true"></blog-post-card>
       </div>
-      <div class="awards">
-        <h3 class="sidebar__header">Awards</h3>
-        <div class="awards__box">
-          <img *ngFor="let a of awards" [src]="'../../../assets/icons/' + a + '.png'" [alt]="a"
-            (click)="toggleSrcImage($event)" />
-        </div>
-      </div>
-    </div>
-    <article class="content" #content>
-      <blog-post-content></blog-post-content>
-      <div class="post__comment">
-        <h2 class="text-two-line mb-20">Comment</h2>
-        <blog-comment-list currentUserId="1"></blog-comment-list>
-      </div>
-    </article>
-
-    <div class="sidebar sidebar--right">
-      <div class="menu">
-        <h3 class="sidebar__header">Menu</h3>
-        <div *ngFor="let hd of (headingList$ | async)">
-          <p [ngClass]="hd.nodeName === 'H2' ? 'menu--heading' : 'menu--sub-heading'">
-            <mat-icon>{{ hd.nodeName === 'H2' ? 'fiber_manual_record' : 'play_arrow'}}</mat-icon>
-            <span [innerHTML]="hd.innerHTML"></span>
-          </p>
-        </div>
-      </div>
-      <div class="stacked-post">
-        <h3 class="sidebar__header">Stacked Post</h3>
-        1. hehe
-        2. haha
-        3. huhu
-      </div>
-    </div>
-
-  </div>
-
-  <div class="post__related my-20">
-    <h2 class="text-two-line mb-20">Related Post</h2>
-    <div class=" grid grid-cols-4 place-items-center">
-      <blog-post-card srcImg="pexels-hitesh-choudhary-879109.jpg" tagsStr="react.js,html,c"
-        [simple]="true"></blog-post-card>
-      <blog-post-card srcImg="pexels-jorge-jesus-614117.jpg" tagsStr="node.js,react.js,angular,css,javascript,html"
-        [simple]="true"></blog-post-card>
-      <blog-post-card srcImg="pexels-ravi-kant-5929346.jpg" tagsStr="ubuntu,node.js,c" [simple]="true"></blog-post-card>
-      <blog-post-card srcImg="pexels-ravi-kant-5929346.jpg" tagsStr="ubuntu,node.js,c" [simple]="true"></blog-post-card>
     </div>
   </div>
-</div>
+</ng-container>
