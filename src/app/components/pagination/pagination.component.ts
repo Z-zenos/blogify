@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'blog-pagination',
@@ -6,7 +6,9 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChi
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit, AfterViewInit {
+
   @Input() totalPages!: number;
+  @Output() onPage: EventEmitter<string> = new EventEmitter<string>();
 
   pageArr: number[] = [];
   currentPage: number = 1;
@@ -30,9 +32,11 @@ export class PaginationComponent implements OnInit, AfterViewInit {
     if (liEl.nodeName === 'LI' && !liEl.classList.contains('active')) {
       if (liEl.textContent === '→') {
         this.currentPage++;
+        this.onPage.emit("next");
       }
       else if (liEl.textContent === '←') {
         this.currentPage--;
+        this.onPage.emit("prev");
       }
       else {
         // @ts-ignore
@@ -40,11 +44,13 @@ export class PaginationComponent implements OnInit, AfterViewInit {
       }
 
       let minPage = 1;
-      if (this.currentPage > this.totalPages - 3) {
-        minPage = this.totalPages - 6;
-      }
-      else if (this.currentPage > Math.ceil(this.maxPage / 2)) {
-        minPage = this.currentPage - 3;
+      if (this.totalPages > 7) {
+        if (this.currentPage > this.totalPages - 3) {
+          minPage = this.totalPages - 6;
+        }
+        else if (this.currentPage > Math.ceil(this.maxPage / 2)) {
+          minPage = this.currentPage - 3;
+        }
       }
 
       this.pageArr = Array.from({ length: this.maxPage }, (_, i) => i + minPage);
@@ -54,6 +60,7 @@ export class PaginationComponent implements OnInit, AfterViewInit {
         p.classList.remove('active');
         if (p.textContent == this.currentPage) p.classList.add('active');
       });
+
     }
   }
 }

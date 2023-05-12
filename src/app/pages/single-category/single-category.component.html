@@ -4,7 +4,4 @@
     <blog-post-card *ngFor="let p of posts; let i = index; let last = last" [post]="p" [simple]="true"
       [type]="['twoColumn', 'horizontal', ''] | randPostCardType"></blog-post-card>
   </div>
-  <div class="single-ctgr__pgnt">
-    <blog-pagination [totalPages]="16"></blog-pagination>
-  </div>
 </div>
