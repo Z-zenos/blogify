@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'blog-icon',
@@ -10,9 +10,15 @@ export class IconComponent implements OnInit {
   @Input() extra: string = 'png';
   @Input() size: string = 'small';
 
+  @Output() onClick: EventEmitter<boolean> = new EventEmitter<boolean>(false);
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleClick() {
+    this.onClick.emit();
   }
 
 }

@@ -7,7 +7,6 @@ import { IPost } from '../models/post.interface';
   providedIn: 'root'
 })
 export class PostService {
-
   private readonly _posts: CollectionReference<DocumentData>;
 
   constructor(
@@ -79,6 +78,22 @@ export class PostService {
     return collectionData(this._posts, {
       idField: 'id'
     }) as Observable<IPost[]>;
+  }
+
+  audioMessage!: SpeechSynthesisUtterance;
+
+  readingPost(content: string) {
+    if ("speechSynthesis" in window) {
+      this.audioMessage = new SpeechSynthesisUtterance();
+    } else {
+      alert("Speech Synthese is not supported");
+    }
+    this.audioMessage.text = content;
+    window.speechSynthesis.speak(this.audioMessage);
+  }
+
+  playPost(isPlay: boolean) {
+    isPlay ? window.speechSynthesis.pause() : window.speechSynthesis.resume();
   }
 
 }

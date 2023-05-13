@@ -20,6 +20,7 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
   stared: boolean = false;
   lighted: boolean = false;
   moneyed: boolean = false;
+  isListening: boolean = false;
 
   post?: IPost;
   categories: ICategory[] = [];
@@ -79,6 +80,18 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
 
   getColor(tagName: string) {
     return this.categories.find(c => c.name === tagName)?.color ?? '';
+  }
+
+  hasRead: boolean = false;
+  listenPost() {
+    this.isListening = !this.isListening;
+    if(!this.hasRead) {
+      this._postService.readingPost(this.post?.content ?? '');
+      this.hasRead = true;
+    }
+    else {
+      this._postService.playPost(this.isListening);
+    }
   }
 
 }
