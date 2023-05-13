@@ -1,0 +1,5 @@
+<button [type]="type" [ngClass]="'btn btn--' + color" [disabled]="isDisabled" (click)="handleClick()">
+  <mat-icon *ngIf="icon && iconPosition === 'left'">{{ icon }}</mat-icon>
+  {{ title }}
+  <mat-icon *ngIf="icon && iconPosition === 'right'">{{ icon }}</mat-icon>
+</button>

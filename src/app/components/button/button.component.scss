@@ -1,0 +1,113 @@
+@import "../../../styles";
+
+.btn {
+  color: white;
+  font-weight: 600;
+  font-size: $small-text;
+  border: 2px solid $primary-color;
+  transition: $transition;
+  cursor: pointer !important;
+  padding: 1rem 2rem;
+  margin: 0 10px;
+
+  border-radius: 30px;
+  box-shadow: $green-1 4px 4px 0 0;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transform: translateX(0);
+
+  &--avoid {
+    transition: all .1s ease;
+    transform: translateX(25rem);
+  }
+
+  &:hover {
+    background-color: white !important;
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  &:active {
+    box-shadow: $green-1 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+
+  &--green {
+    background-color: $primary-color;
+  }
+
+  &--orange {
+    background-color: orange;
+    border-color: orange;
+    box-shadow: yellow 4px 4px 0 0;
+
+    &:hover {
+      color: orange;
+      border-color: orange;
+    }
+  }
+
+  &--yellow {
+    background-color: $yellow-1;
+    border-color: $yellow-1;
+    box-shadow: #f48c06 4px 4px 0 0;
+    color: #f48c06;
+
+    &:hover {
+      color: #f48c06;
+      border-color: $yellow-1;
+    }
+  }
+
+  &--red {
+    background-color: red;
+    border-color: red;
+    box-shadow: #fb3640 4px 4px 0 0;
+
+    &:hover {
+      color: red;
+      border-color: red;
+    }
+  }
+
+  &--blue {
+    background-color: $blue-1;
+    border-color: $blue-1;
+    box-shadow: aquamarine 4px 4px 0 0;
+
+    &:hover {
+      color: $blue-1;
+      border-color: $blue-1;
+    }
+  }
+
+  &--purple {
+    background-color: $purple-1;
+    border-color: $purple-1;
+    box-shadow: #c391e8 4px 4px 0 0;
+
+    &:hover {
+      color: $purple-1;
+      border-color: $purple-1;
+    }
+  }
+
+  &--gray {
+    background-color: $gray-1;
+    border-color: $gray-1;
+    box-shadow: #c7c7c7 4px 4px 0 0;
+
+    &:hover {
+      color: $gray-1;
+      border-color: $gray-1;
+    }
+  }
+}
+
+mat-icon {
+  margin: 0 .5rem;
+}

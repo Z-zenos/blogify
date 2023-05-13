@@ -14,7 +14,6 @@ import { NgOptimizedImage } from "@angular/common";
 import { environment } from 'src/environments/environment.prod';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from "@angular/material/icon";
 import { TagComponent } from './components/tag/tag.component';
 import { SimpleCardComponent } from './components/simple-card/simple-card.component';
 import { MemoryComponent } from './games/memory/memory.component';
@@ -66,7 +65,6 @@ import { RandPostCardTypePipe } from './pipes/rand-post-card-type.pipe';
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
-    MatIconModule,
     CommentsModule,
     HttpClientModule,
     FormsModule,

@@ -16,10 +16,10 @@ header {
   background-color: white;
   height: 12rem;
   border-bottom: 1px solid $primary-color;
+  cursor: pointer;
 }
 
-.terminal {
-  background-color: white;
+.terminal {  background-color: white;
   border: $border;
   border-width: 0 0 1.5px 1.5px;
 
@@ -30,12 +30,20 @@ header {
   }
 
   &__input {
+    all: unset;
     border: none;
     outline: none;
     background-color: transparent;
     font-size: $small-text;
     font-weight: 500;
     letter-spacing: 1px;
+
+    &:focus, &:focus-visible, &:focus-within {
+      background: none;
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
   }
 
   &__logo {

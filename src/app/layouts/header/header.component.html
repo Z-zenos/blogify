@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center" style="background-color: #e5f5ea">
     <a href="#" class="bl__logo">Blogify</a>
   </div>
-  <div class="p-4 myself">
+  <div class="p-4 myself" routerLink="/about-me">
     <p> <blog-icon name="pig-hello-sitting" extra="gif"></blog-icon> I'm <span class="primary-text">Anh
         Tuan</span>, learning SE at HUST 🏫 - Ha Noi, <span style="color: red; font-weight: 700">Viet Nam
         🇻🇳.</span></p>
@@ -21,6 +21,6 @@
       <span>Terminal <blog-icon name="penguin" extra="gif"></blog-icon></span>
     </div>
     <span class="mx-4 font-bold"><span class="primary-text">@search</span>:~$</span>
-    <input type="text" class="terminal__input" placeholder="search, ls, cd..." />
+    <input type="text" class="terminal__input" placeholder="search, ls, cd..." (keyup)="playKeySound()" />
   </div>
 </header>

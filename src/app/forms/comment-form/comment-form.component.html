@@ -8,12 +8,9 @@
 
   <div class="flex justify-between">
     <div>
-      <button class="btn btn--green" type="submit" [disabled]="form.invalid">
-        {{ submitLabel }}
-      </button>
-      <button *ngIf="hasCancelButton" type="button" class="btn btn--yellow" (click)="handleCancel.emit()">
-        Cancel
-      </button>
+      <blog-button color="green" type="submit" [isDisabled]="form.invalid" [title]="submitLabel"></blog-button>
+      <blog-button *ngIf="hasCancelButton" color="yellow" type="button" title="Cancel"
+        (onClick)="handleCancel.emit()"></blog-button>
     </div>
 
     <div class="form__limited-text mt-5">
