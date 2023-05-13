@@ -32,7 +32,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/talkify-tts/dist/talkify.min.js"
             ]
           },
           "configurations": {

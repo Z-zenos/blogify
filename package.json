@@ -23,7 +23,6 @@
     "@angular/router": "^14.1.0",
     "firebase": "^9.19.1",
     "rxjs": "~7.5.0",
-    "talkify-tts": "^3.9.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

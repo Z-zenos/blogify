@@ -7,6 +7,7 @@ import { CategoryService } from 'src/app/services/category.service';
 import { ContentService } from 'src/app/services/content.service';
 import { PostService } from 'src/app/services/post.service';
 
+
 @Component({
   selector: 'app-single-post',
   templateUrl: './single-post.component.html',
@@ -90,7 +91,7 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
       this.hasRead = true;
     }
     else {
-      this._postService.playPost(this.isListening);
+      this._postService.playPost();
     }
   }
 

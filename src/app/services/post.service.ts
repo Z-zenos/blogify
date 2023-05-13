@@ -3,6 +3,8 @@ import { CollectionReference, DocumentData, Firestore, Query, QueryConstraint, c
 import { Observable } from 'rxjs';
 import { IPost } from '../models/post.interface';
 
+declare const responsiveVoice: any;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -83,17 +85,11 @@ export class PostService {
   audioMessage!: SpeechSynthesisUtterance;
 
   readingPost(content: string) {
-    if ("speechSynthesis" in window) {
-      this.audioMessage = new SpeechSynthesisUtterance();
-    } else {
-      alert("Speech Synthese is not supported");
-    }
-    this.audioMessage.text = content;
-    window.speechSynthesis.speak(this.audioMessage);
+    responsiveVoice.speak(content);
   }
 
-  playPost(isPlay: boolean) {
-    isPlay ? window.speechSynthesis.pause() : window.speechSynthesis.resume();
+  playPost() {
+    responsiveVoice.isPlaying() ? responsiveVoice.pause() : responsiveVoice.resume();
   }
 
 }
