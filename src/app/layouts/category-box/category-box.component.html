@@ -1,14 +1,15 @@
-<nav [ngStyle]="{ 'top': scrollPosition <= 456 ? '12rem' : '0' }" class="ctgr-box" #nav>
-  <div class="ctgr-box__logo-div"
-    [ngStyle]="{ 'background-color': scrollPosition < 456 ? '#f9f9f9' : 'rgb(0, 255, 0)' }">
+<nav class="ctgr-box" [ngClass]="{ 'ctgr-box--origin': scrollPosition < 456 }" #nav>
+  <div class="ctgr-box__logo-div">
     <a *ngIf="scrollPosition > 456" routerLink="/" class="ctgr-box__logo primary-text"
       (click)="scrollToTop()">Blogify</a>
   </div>
   <ul>
     <li *ngFor="let c of categories"><a routerLink="/category" [queryParams]="{ name: c.name }">{{ c.name }}</a></li>
   </ul>
-  <div *ngIf="scrollPosition > 456" class="ctgr-box__search">
-    <mat-icon>search</mat-icon>
-    <input placeholder="Something..." type="text">
+  <div class="ctgr-box__search">
+    <ng-container *ngIf="scrollPosition > 456">
+      <mat-icon>search</mat-icon>
+      <input placeholder="Something..." type="text">
+    </ng-container>
   </div>
 </nav>

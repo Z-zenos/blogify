@@ -26,7 +26,7 @@ export class ScrollColorDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.navEl = document.querySelector(".bl__ctgr-box");
+    this.navEl = document.querySelector(".ctgr-box");
     this._vcRef.createEmbeddedView(this._tplRef);
     this._cdref.detectChanges();
   }
