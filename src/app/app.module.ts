@@ -34,6 +34,7 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { RandPostCardTypePipe } from './pipes/rand-post-card-type.pipe';
 import { PrintPostComponent } from './pages/print-post/print-post.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { PrintPostComponent } from './pages/print-post/print-post.component';
     CommentsModule,
     HttpClientModule,
     FormsModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    LazyLoadImageModule
   ],
   providers: [],
   bootstrap: [AppComponent],

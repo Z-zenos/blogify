@@ -4,7 +4,8 @@
     'post-card--horizontal': type === 'horizontal'  
   }">
   <div class="post-card__img">
-    <img [src]="post!.image" [alt]="post!.title" routerLink="/post" [queryParams]="{ 'permalink': post!.permalink}" />
+    <img [defaultImage]="defaultImage" [lazyLoad]="post!.image" [alt]="post!.title" routerLink="/post"
+      [queryParams]="{ 'permalink': post!.permalink}" />
   </div>
   <div class="post-card__info text-left">
     <h3 class="post-card__title" routerLink="/post" [queryParams]="{ 'permalink': post!.permalink}">{{ post!.title }}

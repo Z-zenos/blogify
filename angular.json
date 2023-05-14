@@ -26,6 +26,7 @@
             "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": [
               // "html2canvas"
+              "fuzzysort"
             ],
             "assets": [
               "src/favicon.ico",

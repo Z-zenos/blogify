@@ -13,6 +13,8 @@ export class PostCardComponent implements OnInit {
   @Input() simple = false;
   @Input() type: string = ''; // twoColumn | horizontal
 
+  defaultImage: string = 'assets/images/placeholder-image.png';
+
   tags: ICategory[] = [];
 
   constructor(
