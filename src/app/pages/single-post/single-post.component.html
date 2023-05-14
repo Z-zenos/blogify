@@ -96,15 +96,8 @@
 
     <div class="post__related my-20">
       <h2 class="text-two-line mb-20">Related Post</h2>
-      <div class=" grid grid-cols-4 place-items-center">
-        <blog-post-card srcImg="pexels-hitesh-choudhary-879109.jpg" tagsStr="react.js,html,c"
-          [simple]="true"></blog-post-card>
-        <blog-post-card srcImg="pexels-jorge-jesus-614117.jpg" tagsStr="node.js,react.js,angular,css,javascript,html"
-          [simple]="true"></blog-post-card>
-        <blog-post-card srcImg="pexels-ravi-kant-5929346.jpg" tagsStr="ubuntu,node.js,c"
-          [simple]="true"></blog-post-card>
-        <blog-post-card srcImg="pexels-ravi-kant-5929346.jpg" tagsStr="ubuntu,node.js,c"
-          [simple]="true"></blog-post-card>
+      <div class=" grid grid-cols-4 place-items-center" *ngIf="relatedPosts">
+        <blog-post-card *ngFor="let rp of relatedPosts" [post]="rp" [simple]="true"></blog-post-card>
       </div>
     </div>
   </div>

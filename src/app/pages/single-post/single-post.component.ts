@@ -1,5 +1,5 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { ICategory } from 'src/app/models/category.interface';
 import { IPost } from 'src/app/models/post.interface';
@@ -25,6 +25,7 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
   categories: ICategory[] = [];
   awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket', 'gift', 'crown', 'trophy', 'sprout', 'time'];
   headingList$?: Observable<HTMLHeadingElement[]>;
+  relatedPosts: IPost[] = [];
 
   constructor(
     private _cdref: ChangeDetectorRef,
@@ -32,7 +33,6 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
     private _activatedRoute: ActivatedRoute,
     private _postService: PostService,
     private _categoryService: CategoryService,
-    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -46,6 +46,7 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
       )
       .subscribe((post: any) => {
         [this.post] = post;
+        this.displayRelatedPost();
       });
   }
 
@@ -94,6 +95,12 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
 
   downloadPDF(): void {
     window.open(`/print-post?permalink=${this.post?.permalink}`, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+  }
+
+  displayRelatedPost() {
+    this._postService.getRelatedPost(this.post?.title ?? '').subscribe((data) => {
+      this.relatedPosts = data;
+    });
   }
 
 }

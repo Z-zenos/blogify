@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CollectionReference, DocumentData, Firestore, Query, QueryConstraint, collection, collectionData, endBefore, getCountFromServer, getDocs, limit, limitToLast, orderBy, query, startAfter, startAt, where } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom, map } from 'rxjs';
 import { IPost } from '../models/post.interface';
+
+import * as fuzzysort from 'fuzzysort'
 
 declare const responsiveVoice: any;
 
@@ -92,4 +94,22 @@ export class PostService {
     responsiveVoice.isPlaying() ? responsiveVoice.pause() : responsiveVoice.resume();
   }
 
+  getRelatedPost(title: string): Observable<IPost[]> {
+    return (collectionData(this._posts, {
+      idField: 'id'
+    }) as Observable<IPost[]>)
+      .pipe(
+        map(data => {
+          const words = title.split(' ');
+          const titleList: string[] = data.map(p => p.title);
+          const res: any[] = [];
+          words.forEach(w => {
+            res.push(...fuzzysort.go(w, titleList));
+          });
+          const relatedSet = [...new Set(res)].map(r => r.target);
+          const filteredList = data.filter(p => relatedSet.includes(p.title));
+          return filteredList.slice(0, 4);
+        })
+      );
+  }
 }
