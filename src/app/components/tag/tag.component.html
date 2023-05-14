@@ -2,6 +2,7 @@
   'background-color': color,
   'color': bgColor,
   'border': '1px solid ' + color
-}" (mouseenter)="hover($event)" (mouseleave)="hover($event, false)">
+}" (mouseenter)="hover($event)" (mouseleave)="hover($event, false)" routerLink="/category"
+  [queryParams]="{ name: tagName }">
   {{ tagName }}
 </span>
