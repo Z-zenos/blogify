@@ -1,12 +1,11 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { ICategory } from 'src/app/models/category.interface';
 import { IPost } from 'src/app/models/post.interface';
 import { CategoryService } from 'src/app/services/category.service';
 import { ContentService } from 'src/app/services/content.service';
 import { PostService } from 'src/app/services/post.service';
-
 
 @Component({
   selector: 'app-single-post',
@@ -22,12 +21,9 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
   lighted: boolean = false;
   moneyed: boolean = false;
   isListening: boolean = false;
-
   post?: IPost;
   categories: ICategory[] = [];
-
   awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket', 'gift', 'crown', 'trophy', 'sprout', 'time'];
-
   headingList$?: Observable<HTMLHeadingElement[]>;
 
   constructor(
@@ -35,7 +31,8 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
     private _contentService: ContentService,
     private _activatedRoute: ActivatedRoute,
     private _postService: PostService,
-    private _categoryService: CategoryService
+    private _categoryService: CategoryService,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -93,6 +90,10 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
     else {
       this._postService.playPost();
     }
+  }
+
+  downloadPDF(): void {
+    window.open(`/print-post?permalink=${this.post?.permalink}`, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
   }
 
 }

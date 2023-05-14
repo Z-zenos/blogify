@@ -1,6 +1,12 @@
-<blog-header *ngIf="router !== '/about-me' && scrollPosition < 456"></blog-header>
-<blog-category-box *ngIf="router !== '/about-me'" [scrollPosition]="scrollPosition"></blog-category-box>
-<div [ngClass]="{ 'bl__body': router !== '/about-me'}">
+<ng-container *ngIf="router.includes('/about-me') || router.includes('/print-post'); else main">
   <router-outlet></router-outlet>
-</div>
-<blog-footer></blog-footer>
+</ng-container>
+
+<ng-template #main>
+  <blog-header *ngIf="scrollPosition < 456"></blog-header>
+  <blog-category-box [scrollPosition]="scrollPosition"></blog-category-box>
+  <div class="bl__body">
+    <router-outlet></router-outlet>
+  </div>
+  <blog-footer></blog-footer>
+</ng-template>

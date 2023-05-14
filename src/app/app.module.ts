@@ -33,6 +33,7 @@ import { SpecialCardComponent } from './components/special-card/special-card.com
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { RandPostCardTypePipe } from './pipes/rand-post-card-type.pipe';
+import { PrintPostComponent } from './pages/print-post/print-post.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { RandPostCardTypePipe } from './pipes/rand-post-card-type.pipe';
     IconComponent,
     SpecialCardComponent,
     RandPostCardTypePipe,
+    PrintPostComponent,
   ],
   imports: [
     BrowserModule,

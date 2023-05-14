@@ -51,7 +51,7 @@
           <h3 class="sidebar__header">Tools</h3>
           <div class="tool__box">
             <blog-icon [name]="!bookmarked ? 'bookmark' : 'bookmarked'" extra="svg" size="big"></blog-icon>
-            <blog-icon name="printer" extra="svg" size="big"></blog-icon>
+            <blog-icon name="printer" extra="svg" size="big" (onClick)="downloadPDF()"></blog-icon>
             <blog-icon name="share" extra="svg" size="big"></blog-icon>
             <blog-icon name="terminal-read" extra="svg" size="big"></blog-icon>
             <blog-icon name="comment" extra="svg" size="big"></blog-icon>

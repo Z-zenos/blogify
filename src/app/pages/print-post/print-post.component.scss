@@ -1,0 +1,47 @@
+@import "../../../styles";
+@import "../single-post/single-post.component.scss";
+
+.post {
+  padding: 6rem 1rem;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5%;
+  }
+
+  &__img {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+
+    img {
+      width: 100%;
+      height: 32rem;
+    }
+  }
+
+  &__body {
+    display: block;
+  }
+}
+
+.overview {
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+  }
+
+  .author {
+    grid-template-columns: 3% 95%;
+    margin-bottom: 2rem;
+  }
+}
+
+.post .content {
+  width: 90rem;
+  margin: 0 auto;
+}

@@ -1,0 +1,58 @@
+<ng-container *ngIf="post">
+  <div class="post">
+    <!-- POST HEADER -->
+    <div class="post__header">
+      <div class="overview">
+        <div class="overview__info">
+          <span class="overview__date">{{ post.created_at | date }} <mat-icon>access_time</mat-icon></span>
+          <span class="overview__reading-time">{{ readingTime }} min</span>
+          <div class="overview__react">
+            <div>
+              <span>{{ post.view }} <mat-icon>remove_red_eye</mat-icon></span>
+              <span class="ml-4">{{ post.like }} <mat-icon style="color: blue;">thumb_up</mat-icon></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="overview__tags mt-5 mb-10">
+          <span *ngFor="let c of post.categories;let last = last">#{{ c.name }}{{ last ? '' : ', ' }}</span>
+        </div>
+
+        <div class="author">
+          <div class="author__avatar">
+            <img [src]="post.image" [alt]="'zenos'">
+          </div>
+          <div class="author__info">
+            <p class="author__name primary-text text-half-highlight">
+              Zenos
+            </p>
+            <p class="author__profession">
+              Senior Web Destroyer
+            </p>
+          </div>
+        </div>
+
+        <h1 class="overview__title">{{ post.title }}</h1>
+        <p class="overview__summary">
+          <span class="quick-summary">Quick summary &rarrw;</span>
+          {{ post.excerpt }}
+        </p>
+
+      </div>
+      <div class="post__img post__img--main">
+        <img [src]="post.image" [alt]="post.title" />
+      </div>
+    </div>
+
+    <!-- POST BODY -->
+    <div class="post__body">
+      <article class="content" #content>
+        <p [innerHTML]="post.content"></p>
+        <p class="text-half-highlight" *ngFor="let r of post.references"> <mat-icon
+            style="color: rgb(0, 255, 0); transform: translateY(6px);">link</mat-icon> <a [href]="r">{{ r }}</a></p>
+      </article>
+
+    </div>
+  </div>
+
+</ng-container>

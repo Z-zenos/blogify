@@ -1,6 +1,7 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ScrollService } from './services/scroll.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,8 @@ export class AppComponent implements OnInit {
   scrollPosition: number = 0;
 
   constructor(
-    private _location: Location,
-    private _scrollService: ScrollService
+    private _scrollService: ScrollService,
+    private _router: Router
   ) {
 
   }
@@ -24,6 +25,12 @@ export class AppComponent implements OnInit {
       this.scrollPosition = data;      
     });
 
-    this.router = this._location.path();
+    this._router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      )
+      .subscribe((event: any) => {
+        this.router = event.url;
+      });
   }
 }
