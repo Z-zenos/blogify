@@ -1,5 +1,5 @@
-<blog-header *ngIf="router !== '/about-me'"></blog-header>
-<blog-category-box *ngIf="router !== '/about-me'"></blog-category-box>
+<blog-header *ngIf="router !== '/about-me' && scrollPosition < 456"></blog-header>
+<blog-category-box *ngIf="router !== '/about-me'" [scrollPosition]="scrollPosition"></blog-category-box>
 <div [ngClass]="{ 'bl__body': router !== '/about-me'}">
   <router-outlet></router-outlet>
 </div>

@@ -1,6 +1,6 @@
 @import "../../../styles";
 
-nav.bl__ctgr-box {
+.ctgr-box {
   background-color: $tertiary-color;
   height: 5rem;
   position: fixed;
@@ -8,6 +8,44 @@ nav.bl__ctgr-box {
   left: 0;
   width: 100%;
   z-index: 2;
+  transition: $transition;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  place-items: center;
+  box-shadow: rgba($green-1, 0.25) 0px 14px 28px, rgba($green-1, 0.22) 0px 10px 10px;
+
+  &__logo-div {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    @include center-item();
+  }
+
+  &__logo {
+    font-size: 2.4rem;
+  }
+
+  &__search {
+    height: 100%;
+    width: 100%;
+    background-color: $green-1;
+    @include center-item();
+    padding-left: 1rem;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: $green-1;
+    color: white;
+
+    &:focus, &:focus-visible, &:focus-within {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+  }
 
   ul {
     width: 100%;
