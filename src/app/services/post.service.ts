@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CollectionReference, DocumentData, Firestore, Query, QueryConstraint, collection, collectionData, endBefore, getCountFromServer, getDocs, limit, limitToLast, orderBy, query, startAfter, startAt, where } from '@angular/fire/firestore';
+import { CollectionReference, DocumentData, Firestore, Query, QueryConstraint, collection, collectionData, doc, endBefore, getCountFromServer, getDocs, limit, limitToLast, orderBy, query, startAfter, startAt, updateDoc, where } from '@angular/fire/firestore';
 import { Observable, firstValueFrom, map } from 'rxjs';
 import { IPost } from '../models/post.interface';
 
@@ -75,7 +75,7 @@ export class PostService {
 
   getPostByPermalink(permalink: string) {
     const appQuery = query(this._posts, where('permalink', '==', permalink));
-    return collectionData(appQuery) as Observable<IPost[]>;
+    return collectionData(appQuery, {idField: 'id'}) as Observable<IPost[]>;
   }
 
   getPostByCategory(name: string) {
@@ -111,5 +111,11 @@ export class PostService {
           return filteredList.slice(0, 4);
         })
       );
+  }
+
+  async increaseViewPost(id: string | undefined, currentView: number) {
+    console.log("Increased");
+    const postDocRef = doc(this._firestore, `posts/${id}`);
+    await updateDoc(postDocRef, { view: currentView + 1 });
   }
 }

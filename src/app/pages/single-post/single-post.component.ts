@@ -27,6 +27,8 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
   headingList$?: Observable<HTMLHeadingElement[]>;
   relatedPosts: IPost[] = [];
 
+  hasIncreased: boolean = false;
+
   constructor(
     private _cdref: ChangeDetectorRef,
     private _contentService: ContentService,
@@ -35,18 +37,22 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
     private _categoryService: CategoryService,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this._categoryService.getAll(0).subscribe((data: ICategory[]) => {
       this.categories = data;
     });
 
     this._activatedRoute.queryParams
       .pipe(
-        switchMap(query => this._postService.getPostByPermalink(query['permalink']))
+        switchMap(query => this._postService.getPostByPermalink(query['permalink'])),
       )
       .subscribe((post: any) => {
         [this.post] = post;
         this.displayRelatedPost();
+        console.log("consecutive ????");
+        
+        !this.hasIncreased && this._postService.increaseViewPost(this.post?.id, this.post?.view ?? 0);
+        this.hasIncreased = true;
       });
   }
 
