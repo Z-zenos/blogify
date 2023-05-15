@@ -12,13 +12,13 @@ export class ContentService {
 
   constructor() { }
 
-  getAllHeadingList() {
-    this.headingList = [];
-    this._headingList.next(this.headingList);
-  }
+  // getAllHeadingList() {
+  //   this.headingList = [];
+  //   this._headingList.next(this.headingList);
+  // }
 
   createHeadingList(hl: HTMLHeadingElement[]) {
-    this.headingList.push(...hl);
+    this.headingList = hl;
     this._headingList.next(this.headingList);
   }
 }

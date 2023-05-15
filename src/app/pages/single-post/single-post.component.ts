@@ -53,13 +53,12 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
         
         !this.hasIncreased && this._postService.increaseViewPost(this.post?.id, this.post?.view ?? 0);
         this.hasIncreased = true;
+        this.headingList$ = this._contentService.headingList$;
       });
   }
 
   ngAfterContentChecked() {
-
     this.caculateTimeReading();
-    this.headingList$ = this._contentService.headingList$;
     this._cdref.detectChanges();
   }
 
