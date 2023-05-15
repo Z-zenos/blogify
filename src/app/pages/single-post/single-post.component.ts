@@ -1,6 +1,6 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { ICategory } from 'src/app/models/category.interface';
 import { IPost } from 'src/app/models/post.interface';
 import { CategoryService } from 'src/app/services/category.service';
@@ -26,7 +26,7 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
   awards = ['clap', 'heart', 'star', 'light', 'money', 'rocket', 'gift', 'crown', 'trophy', 'sprout', 'time'];
   headingList$?: Observable<HTMLHeadingElement[]>;
   relatedPosts: IPost[] = [];
-
+  hasRead: boolean = false;
   hasIncreased: boolean = false;
 
   constructor(
@@ -45,6 +45,9 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
     this._activatedRoute.queryParams
       .pipe(
         switchMap(query => this._postService.getPostByPermalink(query['permalink'])),
+        tap(() => {
+          window.scrollTo(0, 0);
+        })
       )
       .subscribe((post: any) => {
         [this.post] = post;
@@ -86,7 +89,6 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
     return this.categories.find(c => c.name === tagName)?.color ?? '';
   }
 
-  hasRead: boolean = false;
   listenPost() {
     this.isListening = !this.isListening;
     if(!this.hasRead) {
