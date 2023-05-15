@@ -79,8 +79,10 @@
         <div class="menu" *ngIf="post">
           <h3 class="sidebar__header">Menu</h3>
           <div *ngFor="let hd of (headingList$ | async)">
-            <p [ngClass]="hd.nodeName === 'H2' ? 'menu--heading' : 'menu--sub-heading'">
-              <mat-icon>{{ hd.nodeName === 'H2' ? 'fiber_manual_record' : 'play_arrow'}}</mat-icon>
+            <p
+              [ngClass]="hd.nodeName === 'H2' ? 'menu--heading' : (hd.nodeName === 'H1' ? 'menu--big-heading' : 'menu--sub-heading')">
+              <mat-icon>{{ hd.nodeName === 'H2' ? 'fiber_manual_record' : (hd.nodeName === 'H1' ? 'games' :
+                'play_arrow')}}</mat-icon>
               <span [innerHTML]="hd.innerHTML"></span>
             </p>
           </div>

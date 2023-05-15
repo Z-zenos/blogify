@@ -10,22 +10,4 @@
     font-size: $big-text;
     color: $primary-color;
   }
-
-  ul {
-    margin: 2rem 0;
-
-    li {
-      display: inline-block;
-      margin: 0 2rem;
-    }
-
-    li a {
-      display: inline-block;
-      opacity: .7;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
 }
