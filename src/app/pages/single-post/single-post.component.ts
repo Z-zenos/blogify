@@ -105,4 +105,12 @@ export class SinglePostComponent implements OnInit, AfterContentChecked {
     });
   }
 
+  scrollToCommentSection() {
+    document.querySelector('.post__comment')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center'
+    });
+  }
+
 }

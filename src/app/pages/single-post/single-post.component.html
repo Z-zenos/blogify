@@ -54,7 +54,7 @@
             <blog-icon name="printer" extra="svg" size="big" (onClick)="downloadPDF()"></blog-icon>
             <blog-icon name="share" extra="svg" size="big"></blog-icon>
             <blog-icon name="terminal-read" extra="svg" size="big"></blog-icon>
-            <blog-icon name="comment" extra="svg" size="big"></blog-icon>
+            <blog-icon name="comment" extra="svg" size="big" (onClick)="scrollToCommentSection()"></blog-icon>
             <blog-icon [name]="isListening ? 'pause' : 'listen'" extra="svg" size="big"
               (onClick)="listenPost()"></blog-icon>
           </div>

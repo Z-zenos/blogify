@@ -4,7 +4,8 @@
       (click)="scrollToTop()">Blogify</a>
   </div>
   <ul>
-    <li *ngFor="let c of categories"><a routerLink="/category" [queryParams]="{ name: c.name }">{{ c.name }}</a></li>
+    <li *ngFor="let c of categories"><a [ngClass]="{ 'active': router.includes(c.name)}" routerLink="/category"
+        [queryParams]="{ name: c.name }">{{ c.name }}</a></li>
   </ul>
   <div class="ctgr-box__search">
     <ng-container *ngIf="scrollPosition > 456">

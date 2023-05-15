@@ -77,7 +77,7 @@
       color: $primary-color;
       transition: $transition;
 
-      &:hover {
+      &:hover, &.active {
         background-color: $primary-color;
         color: $tertiary-color;
         text-decoration: underline;

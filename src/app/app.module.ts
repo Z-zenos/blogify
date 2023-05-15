@@ -37,6 +37,8 @@ import { PrintPostComponent } from './pages/print-post/print-post.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { Scroll2topComponent } from './layouts/scroll2top/scroll2top.component';
 
+import { QuillModule } from 'ngx-quill'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +76,8 @@ import { Scroll2topComponent } from './layouts/scroll2top/scroll2top.component';
     HttpClientModule,
     FormsModule,
     SharedComponentsModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

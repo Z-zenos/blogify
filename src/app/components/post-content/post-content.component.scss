@@ -18,3 +18,39 @@ a {
   background-color: $primary-color;
   color: white;
 }
+
+:host ::ng-deep .ql-snow .ql-editor pre.ql-syntax {
+  background-color: #000;
+  color: $primary-color;
+  overflow: visible;
+}
+
+:host ::ng-deep .ql-editor a, :host ::ng-deep .wf__info a {
+  display: inline-block;
+  background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), rgba($green-1, 0.35) calc(50% - 9px), rgba($green-1, 0.35) 100%);
+  transition: all 120ms ease-in-out 0s;
+  background-size: 100% 200%;
+  background-position: 0 0;
+  word-break: break-word;
+
+  &:hover {
+    background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), $green-1 calc(50% - 9px), $green-1 100%);
+    background-position: 0 100%;
+  }
+}
+
+:host ::ng-deep .ql-syntax {
+  background-color: black;
+  overflow-x: scroll;
+  padding: 1.7rem;
+}
+
+:host ::ng-deep .ql-editor {
+  h1, h2, h3 {
+    font-weight: 600;
+  }
+
+  h1 { font-size: 3.6rem; }
+  h2 { font-size: 3rem; }
+  h3 { font-size: 2.4rem; }
+}
