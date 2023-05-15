@@ -8,5 +8,6 @@
   <div class="bl__body">
     <router-outlet></router-outlet>
   </div>
+  <blog-scroll2top *ngIf="scrollPosition > 700"></blog-scroll2top>
   <blog-footer></blog-footer>
 </ng-template>

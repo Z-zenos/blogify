@@ -15,11 +15,6 @@ import { PostService } from 'src/app/services/post.service';
 export class SinglePostComponent implements OnInit, AfterContentChecked {
   readingTime: number = 0;
   bookmarked: boolean = false;
-  clapped: boolean = false;
-  hearted: boolean = false;
-  stared: boolean = false;
-  lighted: boolean = false;
-  moneyed: boolean = false;
   isListening: boolean = false;
   post?: IPost;
   categories: ICategory[] = [];

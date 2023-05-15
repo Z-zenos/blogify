@@ -35,6 +35,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { RandPostCardTypePipe } from './pipes/rand-post-card-type.pipe';
 import { PrintPostComponent } from './pages/print-post/print-post.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { Scroll2topComponent } from './layouts/scroll2top/scroll2top.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     SpecialCardComponent,
     RandPostCardTypePipe,
     PrintPostComponent,
+    Scroll2topComponent,
   ],
   imports: [
     BrowserModule,
