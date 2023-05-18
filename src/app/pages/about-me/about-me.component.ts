@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IProject } from 'src/app/models/project.interfact';
+import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-about-me',
@@ -12,7 +14,15 @@ export class AboutMeComponent implements OnInit {
 
   title: string = 'My Project';
 
-  constructor() { }
+  projects?: IProject[];
+
+  constructor(
+    private _projectService: ProjectService
+  ) { 
+    this._projectService.getAll().subscribe(data => {
+      this.projects = data;
+    });
+  }
 
   ngOnInit(): void {
     const now = new Date();

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IProject } from 'src/app/models/project.interfact';
 
 @Component({
   selector: 'blog-special-card',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./special-card.component.scss']
 })
 export class SpecialCardComponent implements OnInit {
+  @Input() project?: IProject;
 
   constructor() { }
 
