@@ -15,8 +15,8 @@ export class ProjectService {
 
   private readonly _project: CollectionReference<DocumentData>;
 
-  constructor(private readonly firestore: Firestore) {
-    this._project = collection(this.firestore, 'projects');
+  constructor(private readonly _firestore: Firestore) {
+    this._project = collection(this._firestore, 'projects');
   }
 
   getAll() {
