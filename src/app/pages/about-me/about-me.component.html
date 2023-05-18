@@ -18,8 +18,10 @@
       </div>
     </div>
     <ul class="list list--category">
-      <li><blog-icon name="project"></blog-icon> My Projects</li>
-      <li><blog-icon name="love"></blog-icon> Bookmarks</li>
+      <li [ngClass]="{ 'active': category === 'projects' }" [routerLink]="['/about-me', 'projects']"><blog-icon
+          name="project"></blog-icon> My Projects</li>
+      <li [ngClass]="{ 'active': category === 'bookmarks' }" [routerLink]="['/about-me', 'bookmarks']"><blog-icon
+          name="love"></blog-icon> Bookmarks</li>
       <li><blog-icon name="career"></blog-icon> Career</li>
       <li><blog-icon name="tools"></blog-icon> Technologies</li>
       <li><blog-icon name="music"></blog-icon> Musics</li>
@@ -45,9 +47,12 @@
       </h3>
     </div>
     <div class="zenos__main">
-      <blog-special-card></blog-special-card>
-      <blog-special-card></blog-special-card>
-      <blog-special-card></blog-special-card>
+      <ng-container *ngIf="category === 'projects'">
+        <blog-special-card *ngFor="let p of projects" [project]="p"></blog-special-card>
+      </ng-container>
+      <ng-container *ngIf="category === 'bookmarks'">
+        <blog-bookmark *ngFor="let b of bookmars" [bookmark]="b"></blog-bookmark>
+      </ng-container>
     </div>
   </div>
 

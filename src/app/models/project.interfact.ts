@@ -4,6 +4,6 @@ export interface IProject {
   url: string;
   image: string;
   describe: string;
-  language: string;
+  languages: string[];
   star: string;
 }

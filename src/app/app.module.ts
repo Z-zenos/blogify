@@ -37,7 +37,8 @@ import { PrintPostComponent } from './pages/print-post/print-post.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { Scroll2topComponent } from './layouts/scroll2top/scroll2top.component';
 
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
+import { BookmarkComponent } from './components/bookmark/bookmark.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { QuillModule } from 'ngx-quill'
     RandPostCardTypePipe,
     PrintPostComponent,
     Scroll2topComponent,
+    BookmarkComponent,
   ],
   imports: [
     BrowserModule,

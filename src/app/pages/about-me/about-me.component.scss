@@ -53,6 +53,28 @@
     align-items: center;
     row-gap: 3rem;
     margin-top: 3rem;
+    overflow-x: visible;
+    overflow-y: scroll;
+    height: 64rem;
+    border-bottom: 3px solid $primary-color;
+    position: relative;
+
+    scrollbar-width: none !important;
+
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0 !important;
+    }
+
+    &::after {
+      position: fixed;
+      bottom: 0;  
+      height: 100%;
+      width: 100%;
+      content: "";
+      background: linear-gradient(to top, rgb(255, 255, 255) 10%, rgba(255, 255, 255, 0) 30%);
+      pointer-events: none; /* so the text is still selectable */
+    }
   }
 
 }
@@ -69,12 +91,12 @@
       &:hover {
         background-color: $secondary-color;
       }
+
+      &.active {
+        background-color: $secondary-color;
+      }
     }
-  }
 
-  
-
-  &--info {
 
   }
 }

@@ -1,7 +1,8 @@
 @import "../../../styles";
 
 .sc {
-  width: 100%;
+  margin-top: 1.2rem;
+  width: 45rem;
   height: 16rem;
   background-color: white;
   display: grid;
@@ -12,11 +13,12 @@
   cursor: pointer;
   
   &__img {
-    height: 100%;
+    height: 14rem;
     box-shadow: $primary-color 1px 0.2rem, $primary-color 1px -0.2rem, $primary-color 0.2rem 1px, $primary-color -0.2rem 1px;
     img {
-      height: 100%;
-      object-fit: cover;
+      width: 17rem;
+      height: 14rem;
+      object-fit: contain;
     }
   }
 
@@ -30,7 +32,16 @@
   }
 
   &__link {
-    font-size: 1.3rem;
+    font-size: $tip-text;
+    margin-right: 5px;
     @include center-item();
+  }
+
+  &__desc {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    opacity: .7;
+    color: $text-color;
+    @include limit-line(3);
   }
 }

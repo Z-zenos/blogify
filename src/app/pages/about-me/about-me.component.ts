@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { IBookmark } from 'src/app/models/bookmark.interface';
 import { IProject } from 'src/app/models/project.interfact';
 import { ProjectService } from 'src/app/services/project.service';
 
@@ -16,15 +18,32 @@ export class AboutMeComponent implements OnInit {
 
   projects?: IProject[];
 
+  bookmars: IBookmark[] = [
+    { name: 'This is a bookmark', 'favicon': 'assets/icons/gmail.png', location: 'Angular', url: 'https://www.tektutorialshub.com/angular/angular-passing-parameters-to-route/' },
+    { name: 'This is a bookmark', 'favicon': 'assets/icons/gmail.png', location: 'Angular', url: 'https://www.tektutorialshub.com/angular/angular-passing-parameters-to-route/' },
+    { name: 'This is a bookmark', 'favicon': 'assets/icons/gmail.png', location: 'Angular', url: 'https://www.tektutorialshub.com/angular/angular-passing-parameters-to-route/' },
+    { name: 'This is a bookmark', 'favicon': 'assets/icons/gmail.png', location: 'Angular', url: 'https://www.tektutorialshub.com/angular/angular-passing-parameters-to-route/' },
+    { name: 'This is a bookmark', 'favicon': 'assets/icons/gmail.png', location: 'Angular', url: 'https://www.tektutorialshub.com/angular/angular-passing-parameters-to-route/' },
+  ];
+
   constructor(
-    private _projectService: ProjectService
+    private _projectService: ProjectService,
+    private _activatedRoute: ActivatedRoute
   ) { 
+
+  }
+
+  category: string | null = '';
+
+  ngOnInit(): void {
+    this._activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      this.category = params.get('category');
+    });
+
     this._projectService.getAll().subscribe(data => {
       this.projects = data;
     });
-  }
 
-  ngOnInit(): void {
     const now = new Date();
     this.today = `${this.weekday[now.getDay()]}, ${now.getDate()} ${this.monthNames[now.getMonth()]}, ${now.getFullYear()}`;
   }

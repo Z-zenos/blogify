@@ -1,0 +1,21 @@
+@import "../../../styles";
+
+.bookmark {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 85%;
+  column-gap: 4%;
+  margin: 1rem;
+
+  &__name {
+    width: 100%;
+  }
+
+  &__img {
+
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+}

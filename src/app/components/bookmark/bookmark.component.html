@@ -1,0 +1,6 @@
+<a *ngIf="bookmark" class="bookmark text-half-highlight" [href]="bookmark.url">
+  <div class="bookmark__img">
+    <img [src]="bookmark.favicon" alt="favicon" />
+  </div>
+  <p class="bookmark__name">{{ bookmark.name }}</p>
+</a>

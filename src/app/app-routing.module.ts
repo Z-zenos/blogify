@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'category', component: SingleCategoryComponent },
   { path: 'post', component: SinglePostComponent },
   { path: 'print-post', component: PrintPostComponent },
-  { path: 'about-me', component: AboutMeComponent },
+  { path: 'about-me/:category', component: AboutMeComponent },
 ];
 
 @NgModule({
